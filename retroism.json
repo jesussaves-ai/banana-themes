@@ -246,24 +246,24 @@
       "bottom": [
         { "use": "wallpaper" },
         // the desktop icons: the systems down the left, labelled like shortcuts
-        { "type": "list", "source": "systems", "direction": "column", "x": 12, "y": 36, "w": 120, "h": 392,
-          "itemW": 112, "itemH": 72, "gap": 2, "scrollMode": "edge", "clip": true,
+        { "type": "list", "source": "systems", "direction": "column", "x": 10, "y": 8, "w": 120, "h": 460,
+          "itemW": 110, "itemH": 62, "gap": 1, "scrollMode": "edge", "clip": true,
           "item": {
-            "type": "group", "w": 112, "h": 72,
+            "type": "group", "w": 110, "h": 62,
             "children": [
-              { "type": "image", "src": "{item.icon}", "fit": "pixelContain", "x": 40, "y": 4, "w": 32, "h": 32,
+              { "type": "image", "src": "{item.icon}", "fit": "pixelContain", "x": 39, "y": 3, "w": 30, "h": 30,
                 "scale": "=sel ? 1.15 : 1.0" },
-              { "type": "group", "x": 56, "y": 42, "anchor": "top", "layout": "row", "padding": 2,
+              { "type": "group", "x": 55, "y": 38, "anchor": "top", "layout": "row", "padding": 2,
                 "fill": "=sel ? navy : '#00000000'",
                 "children": [ { "type": "text", "text": "{item.name}", "size": 11, "color": "=sel ? '#ffffff' : '#eef2f7'",
                   "shadow": { "x": 1, "y": 1, "color": "=sel ? '#00000000' : '#000000c0'" } } ] },
-              { "type": "group", "x": 70, "y": 24, "w": 12, "h": 12, "fill": "=paper", "border": 1, "borderColor": "=ink",
+              { "type": "group", "x": 66, "y": 21, "w": 12, "h": 12, "fill": "=paper", "border": 1, "borderColor": "=ink",
                 "visible": "=item.fav", "children": [
                 { "type": "text", "x": 0, "w": 12, "y": -3, "align": "center", "text": "*", "font": "=mono", "size": 11, "color": "=navy" } ] }
             ]
           } },
-        // the count, in a sunken cell along the bottom
-        { "use": "sunken", "x": 12, "y": 436, "w": 120, "h": 20, "children": [
+        // the count, in a sunken cell at the bottom right
+        { "use": "sunken", "right": 10, "y": 452, "w": 120, "h": 20, "children": [
           { "type": "text", "x": 0, "w": "100%", "y": 2, "align": "center", "text": "{cursor + 1} of {count}", "font": "=mono", "size": 12, "color": "=ink" }
         ] }
       ]
