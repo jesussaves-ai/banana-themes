@@ -5,7 +5,7 @@
   // shadow #666666, well #909090, outline #000000, text #000000, accent #1f6f6a, urgent #ff5a2b. The bevel
   // rules are the waybar "Chicago" ones: raised is #ffffff top/left and #666666 bottom/right, sunken is the
   // reverse, corners are square. niri's navy #000080 paints the selections. The desktop gradient follows
-  // metropolis.png (a dark blue-grey city). Font is Banana's Pixelify Sans: Monaco and Charcoal are Apple's
+  // the author's metropolis wallpaper (retroism/wallpaper.png), with a scrim over it. Font is Banana's Pixelify Sans: Monaco and Charcoal are Apple's
   // and can't be shipped, but the menu reads the same with the pixel font.
   "name": "Retroism",
   "author": "niri + Quickshell",
@@ -51,19 +51,10 @@
     "wallpaper": {
       "type": "group",
       "children": [
-        { "type": "rect", "gradient": { "angle": 180, "stops": ["#2f4058", "#45505e 55%", "#6f7d8a"] } },
-        { "type": "rect", "x": 0, "y": 330, "w": "100%", "h": 150, "fill": "#26303d" },
-        // the skyline sits clear of the desktop icons (down the left)
-        { "type": "rect", "x": 200, "y": 258, "w": 46, "h": 72, "fill": "#1d2531" },
-        { "type": "rect", "x": 258, "y": 236, "w": 30, "h": 94, "fill": "#222b38" },
-        { "type": "rect", "x": 300, "y": 286, "w": 84, "h": 44, "fill": "#1a222d" },
-        { "type": "rect", "x": 470, "y": 244, "w": 40, "h": 86, "fill": "#222b38" },
-        { "type": "rect", "x": 522, "y": 272, "w": 70, "h": 58, "fill": "#1d2531" },
-        // a few lit windows
-        { "type": "rect", "x": 212, "y": 270, "w": 4, "h": 4, "fill": "#ffd98a" },
-        { "type": "rect", "x": 266, "y": 250, "w": 4, "h": 4, "fill": "#ffd98a" },
-        { "type": "rect", "x": 314, "y": 296, "w": 4, "h": 4, "fill": "#ffd98a" },
-        { "type": "rect", "x": 484, "y": 258, "w": 4, "h": 4, "fill": "#ffd98a" }
+        // a real picture behind everything: the author's wallpaper, 1024x768, in the theme's own folder
+        { "type": "image", "src": "retroism/wallpaper.png", "fit": "cover", "x": 0, "y": 0, "w": "100%", "h": "100%", "placeholder": "#2f4058" },
+        // a light scrim over it, so the desktop icons and the windows stay readable
+        { "type": "rect", "x": 0, "y": 0, "w": "100%", "h": "100%", "fill": "#0e141c4d" }
       ]
     },
 

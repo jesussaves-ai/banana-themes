@@ -17,10 +17,13 @@ with the card in a computer — then pick it in **Settings ▸ Display & sound �
 ## Retroism
 
 A Platinum / Win9x desktop: grey beveled windows with square corners, a taskbar along the top, navy selections
-and a teal accent. Matches a niri + Quickshell "Retroism" system. No pictures or fonts of its own — every screen
-is drawn from the file's own shapes and text.
+and a teal accent. Matches a niri + Quickshell "Retroism" system. Everything but the wallpaper is drawn from the
+file's own shapes and text.
 
-📄 [`retroism.json`](retroism.json)
+📄 [`retroism.json`](retroism.json) · 🖼️ [`retroism/wallpaper.png`](retroism/wallpaper.png)
+
+The wallpaper is the author's own, downscaled to 1024×768 (the engine refuses a picture over 4096 px a side, and
+the panels are only 640×480 and 1024×768); a light scrim sits over it so the icons and windows stay readable.
 
 Home — the window on the top screen, the desktop with its system icons on the bottom:
 
