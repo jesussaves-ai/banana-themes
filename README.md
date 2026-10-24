@@ -16,9 +16,9 @@ with the card in a computer — then pick it in **Settings ▸ Display & sound �
 
 ## Retroism
 
-A Platinum / Win9x desktop: grey beveled windows with square corners, a taskbar along the top, navy selections
-and a teal accent. Matches a niri + Quickshell "Retroism" system. Everything but the wallpaper is drawn from the
-file's own shapes and text.
+A Windows 95 desktop in the [Chicago95](https://github.com/grassmunk/Chicago95) style: grey beveled windows with
+square corners, navy title bars and selections, a taskbar along the top. Matches a niri + Quickshell "Retroism"
+system. Everything but the wallpaper is drawn from the file's own shapes and text.
 
 📄 [`retroism.json`](retroism.json) · 🖼️ [`retroism/wallpaper.png`](retroism/wallpaper.png)
 
@@ -46,3 +46,17 @@ in. Start from any theme here, or from the examples that ship with BananaOS.
 
 Fonts: BananaOS ships Pixelify Sans. A theme may name its own `.ttf` (relative to the `.json`) — keep in mind
 some popular retro fonts are proprietary and can't be redistributed.
+
+---
+
+## Credits and license
+
+**License: [GPL-3.0-or-later](LICENSE)** (the full text is in [`LICENSE`](LICENSE)).
+
+- **Retroism**'s palette and window chrome come from **[Chicago95](https://github.com/grassmunk/Chicago95)** by
+  Grassmunk and contributors (AdrianoML, EMH-Mark-I), which is licensed GPL-3.0+/MIT. Chicago95 recreates the
+  Windows 95 look; this theme only reuses its colours and geometry (face `#c0c0c0`, highlight `#ffffff`,
+  shadow `#808080`, outline `#000000`, navy `#000080`) and draws them with BananaOS's own elements. Thanks to
+  its authors.
+- The wallpaper in `retroism/` is the theme author's own.
+- Everything is drawn by BananaOS's layout engine; no Chicago95 files or assets are included.

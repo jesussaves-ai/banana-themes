@@ -1,39 +1,37 @@
 {
-  // Retroism: a Platinum / Win9x desktop for BananaOS, matching a niri + Quickshell "Retroism" system.
+  // Retroism: a Windows 95 desktop for BananaOS, matching a niri + Quickshell "Retroism" system.
   //
-  // Colours: quickshell retroism Config.qml (currentTheme "default") — base #b4b4b4, highlight #ffffff,
-  // shadow #666666, well #909090, outline #000000, text #000000, accent #1f6f6a, urgent #ff5a2b. The bevel
-  // rules are the waybar "Chicago" ones: raised is #ffffff top/left and #666666 bottom/right, sunken is the
-  // reverse, corners are square. niri's navy #000080 paints the selections. The desktop gradient follows
-  // the author's metropolis wallpaper (retroism/wallpaper.png), with a scrim over it. Font is Banana's Pixelify Sans: Monaco and Charcoal are Apple's
-  // and can't be shipped, but the menu reads the same with the pixel font.
+  // Palette and chrome are Chicago95 (https://github.com/grassmunk/Chicago95), GPL-3.0+: face #c0c0c0,
+  // highlight #ffffff, shadow #808080, outline #000000, navy #000080 for active title bars and selections
+  // (#ffffff on them), hover #dfdfdf. Corners are square; depth is only the bevels. The taskbar layout is the
+  // Retroism shell's. The desktop is the author's metropolis wallpaper (retroism/wallpaper.png), with a scrim.
+  // Font is Banana's Pixelify Sans: Monaco, Charcoal and MS Sans Serif can't be redistributed.
   "name": "Retroism",
-  "author": "niri + Quickshell",
+  "author": "niri + Quickshell, on Chicago95 (GPL-3.0+)",
   "base": "light",
-  "accent": "#1f6f6a",
+  "accent": "#000080",
 
   "colors": {
-    "screenBg": "#b4b4b4", "screenBand": "#ffffff", "screenFrame": "#000000",
-    "ink": "#000000", "muted": "#666666", "line": "#666666", "edge": "#000000", "navy": "#000080",
-    "panelBand": "#ffffff", "panelBody": "#b4b4b4", "panelLow": "#666666",
-    "chipBand": "#ffffff", "chipBody": "#b4b4b4",
-    "bubbleBand": "#ffffff", "bubbleBody": "#b4b4b4", "bubbleLow": "#666666",
-    "sheetBase": "#909090", "sheetHi": "#ffffff", "sheetLo": "#666666",
-    "trackBg": "#909090", "trackHi": "#ffffff", "trackShade": "#666666", "railBg": "#909090",
-    "slotOn": "#1f6f6a", "onPick": "#ffffff", "onPickAccent": "#ffffff",
-    "meterBg": "#909090", "rule": "#666666",
+    "screenBg": "#c0c0c0", "screenBand": "#ffffff", "screenFrame": "#000000",
+    "ink": "#000000", "muted": "#808080", "line": "#808080", "edge": "#000000", "navy": "#000080",
+    "panelBand": "#ffffff", "panelBody": "#c0c0c0", "panelLow": "#808080",
+    "chipBand": "#ffffff", "chipBody": "#c0c0c0",
+    "bubbleBand": "#ffffff", "bubbleBody": "#c0c0c0", "bubbleLow": "#808080",
+    "sheetBase": "#c0c0c0", "sheetHi": "#ffffff", "sheetLo": "#808080",
+    "trackBg": "#c0c0c0", "trackHi": "#ffffff", "trackShade": "#808080", "railBg": "#c0c0c0",
+    "slotOn": "#000080", "onPick": "#ffffff", "onPickAccent": "#ffffff",
+    "meterBg": "#808080", "rule": "#808080",
     "kbdBg": "#ffffff", "kbdInk": "#000000",
-    "favBorder": "#1f6f6a", "favBand": "#ffffff", "favBody": "#b4b4b4", "favInk": "#000000",
+    "favBorder": "#000080", "favBand": "#ffffff", "favBody": "#c0c0c0", "favInk": "#000000",
     "floor": "#00000055", "glint": "#ffffff66",
     "blackish": "#000000", "shade35": "#00000059", "shade40": "#00000066", "shade45": "#00000073"
   },
   "font": "pixel",
 
   "vars": {
-    "face": "#b4b4b4", "hi": "#ffffff", "sh": "#666666", "well": "#909090",
-    "ink": "#000000", "acc": "#1f6f6a", "urgent": "#ff5a2b", "navy": "#000080",
-    "paper": "#ffffff", "mono": "pixel",
-    "desk1": "#2f4058", "desk2": "#45505e", "desk3": "#6f7d8a"
+    "face": "#c0c0c0", "hi": "#ffffff", "sh": "#808080", "well": "#c0c0c0", "hover": "#dfdfdf",
+    "ink": "#000000", "acc": "#000080", "urgent": "#ff0000", "navy": "#000080",
+    "paper": "#ffffff", "mono": "pixel"
   },
 
   "input": {
@@ -55,17 +53,6 @@
         { "type": "image", "src": "retroism/wallpaper.png", "fit": "cover", "x": 0, "y": 0, "w": "100%", "h": "100%", "placeholder": "#2f4058" },
         // a light scrim over it, so the desktop icons and the windows stay readable
         { "type": "rect", "x": 0, "y": 0, "w": "100%", "h": "100%", "fill": "#0e141c4d" }
-      ]
-    },
-
-    // the four gradient rules that flank a window's title, as PopupWindowFrame.qml draws them
-    "titleRules": {
-      "type": "group", "layout": "column", "gap": 1, "w": 96, "h": 11,
-      "children": [
-        { "type": "rect", "w": "100%", "h": 2, "gradient": { "angle": 180, "stops": ["#ffffff", "#ffffff 50%", "#000000"] } },
-        { "type": "rect", "w": "100%", "h": 2, "gradient": { "angle": 180, "stops": ["#ffffff", "#ffffff 50%", "#000000"] } },
-        { "type": "rect", "w": "100%", "h": 2, "gradient": { "angle": 180, "stops": ["#ffffff", "#ffffff 50%", "#000000"] } },
-        { "type": "rect", "w": "100%", "h": 2, "gradient": { "angle": 180, "stops": ["#ffffff", "#ffffff 50%", "#000000"] } }
       ]
     },
 
@@ -121,7 +108,7 @@
       ]
     },
 
-    // a window: the grey frame, the title bar (title in "title") with its rules and a close box
+    // a window: the grey frame, a navy title bar (title in "title") and a close box
     "window": {
       "type": "group",
       "children": [
@@ -131,14 +118,11 @@
         { "type": "rect", "x": 2, "y": 2, "bottom": 2, "w": 2, "fill": "=hi" },
         { "type": "rect", "x": 2, "bottom": 2, "right": 2, "h": 2, "fill": "=sh" },
         { "type": "rect", "right": 2, "y": 2, "bottom": 2, "w": 2, "fill": "=sh" },
-        { "type": "group", "x": 6, "y": 6, "right": 6, "h": 22, "children": [
-          { "type": "rect", "fill": "=face" },
-          { "type": "rect", "x": 0, "bottom": 0, "h": 1, "w": "100%", "fill": "=ink" },
-          { "use": "titleRules", "x": 8, "y": 5, "w": 72 },
-          { "use": "titleRules", "right": 44, "y": 5, "w": 72 },
-          { "type": "text", "x": 96, "y": 4, "right": 132, "align": "center", "text": "{title}", "font": "=mono", "size": 12, "color": "=ink" },
-          { "use": "raised", "right": 4, "y": 3, "w": 18, "h": 16, "children": [
-            { "type": "text", "x": 0, "w": "100%", "y": 0, "h": "100%", "align": "center", "valign": "middle", "text": "X", "size": 12, "color": "=ink" } ] }
+        { "type": "group", "x": 6, "y": 6, "right": 6, "h": 20, "children": [
+          { "type": "rect", "fill": "=navy" },
+          { "type": "text", "x": 6, "y": 3, "right": 24, "align": "center", "text": "{title}", "font": "=mono", "size": 12, "color": "#ffffff" },
+          { "use": "raised", "right": 3, "y": 2, "w": 16, "h": 16, "children": [
+            { "type": "text", "x": 0, "w": "100%", "y": 1, "h": "100%", "align": "center", "valign": "middle", "text": "X", "size": 11, "color": "=ink" } ] }
         ] }
       ]
     },
@@ -203,8 +187,10 @@
         // the "start" chip
         { "use": "raised", "x": 4, "y": 4, "w": 78, "h": 20, "children": [
           { "type": "group", "x": 6, "y": 5, "w": 10, "h": 10, "children": [
-            { "type": "rect", "w": 10, "h": 4, "fill": "=acc" },
-            { "type": "rect", "y": 6, "w": 10, "h": 4, "fill": "=acc" }
+            { "type": "rect", "w": 5, "h": 5, "fill": "#ff0000" },
+            { "type": "rect", "x": 6, "w": 4, "h": 5, "fill": "#00a000" },
+            { "type": "rect", "y": 6, "w": 5, "h": 4, "fill": "#0000c0" },
+            { "type": "rect", "x": 6, "y": 6, "w": 4, "h": 4, "fill": "#ffd000" }
           ] },
           { "type": "text", "x": 22, "y": 3, "text": "BANANA", "font": "=mono", "size": 12, "color": "=ink" }
         ] },
