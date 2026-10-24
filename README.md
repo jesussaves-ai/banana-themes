@@ -53,10 +53,10 @@ some popular retro fonts are proprietary and can't be redistributed.
 
 **License: [GPL-3.0-or-later](LICENSE)** (the full text is in [`LICENSE`](LICENSE)).
 
-- **Retroism**'s palette and window chrome come from **[Chicago95](https://github.com/grassmunk/Chicago95)** by
-  Grassmunk and contributors (AdrianoML, EMH-Mark-I), which is licensed GPL-3.0+/MIT. Chicago95 recreates the
-  Windows 95 look; this theme only reuses its colours and geometry (face `#c0c0c0`, highlight `#ffffff`,
-  shadow `#808080`, outline `#000000`, navy `#000080`) and draws them with BananaOS's own elements. Thanks to
-  its authors.
+- **Retroism**'s palette, window chrome and font come from
+  **[Chicago95](https://github.com/grassmunk/Chicago95)** by Grassmunk and contributors (AdrianoML, EMH-Mark-I),
+  licensed GPL-3.0+/MIT. Chicago95 recreates the Windows 95 look; this theme reuses its colours and geometry
+  (face `#c0c0c0`, highlight `#ffffff`, shadow `#808080`, outline `#000000`, navy `#000080`, hover `#dfdfdf`)
+  and its [`MorePerfectDOSVGA.ttf`](retroism/MorePerfectDOSVGA.ttf) font, and draws the screens with BananaOS's
+  own elements. Thanks to its authors.
 - The wallpaper in `retroism/` is the theme author's own.
-- Everything is drawn by BananaOS's layout engine; no Chicago95 files or assets are included.

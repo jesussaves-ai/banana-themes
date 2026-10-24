@@ -5,7 +5,8 @@
   // highlight #ffffff, shadow #808080, outline #000000, navy #000080 for active title bars and selections
   // (#ffffff on them), hover #dfdfdf. Corners are square; depth is only the bevels. The taskbar layout is the
   // Retroism shell's. The desktop is the author's metropolis wallpaper (retroism/wallpaper.png), with a scrim.
-  // Font is Banana's Pixelify Sans: Monaco, Charcoal and MS Sans Serif can't be redistributed.
+  // The text is Chicago95's DOS VGA font (retroism/MorePerfectDOSVGA.ttf, GPL-3.0+); MS Sans Serif, Monaco and
+  // Charcoal can't be redistributed. See README.md for the credits.
   "name": "Retroism",
   "author": "niri + Quickshell, on Chicago95 (GPL-3.0+)",
   "base": "light",
@@ -26,12 +27,15 @@
     "floor": "#00000055", "glint": "#ffffff66",
     "blackish": "#000000", "shade35": "#00000059", "shade40": "#00000066", "shade45": "#00000073"
   },
-  "font": "pixel",
+  "font": "dos",
+  // the DOS VGA font Chicago95 ships (GPL-3.0+/MIT); regular/medium are also Settings' fonts
+  "fonts": { "regular": "retroism/MorePerfectDOSVGA.ttf", "medium": "retroism/MorePerfectDOSVGA.ttf",
+             "dos": "retroism/MorePerfectDOSVGA.ttf" },
 
   "vars": {
     "face": "#c0c0c0", "hi": "#ffffff", "sh": "#808080", "well": "#c0c0c0", "hover": "#dfdfdf",
     "ink": "#000000", "acc": "#000080", "urgent": "#ff0000", "navy": "#000080",
-    "paper": "#ffffff", "mono": "pixel"
+    "paper": "#ffffff", "mono": "dos"
   },
 
   "input": {
@@ -255,7 +259,7 @@
                   "shadow": { "x": 1, "y": 1, "color": "=sel ? '#00000000' : '#000000c0'" } } ] },
               { "type": "group", "x": 70, "y": 24, "w": 12, "h": 12, "fill": "=paper", "border": 1, "borderColor": "=ink",
                 "visible": "=item.fav", "children": [
-                { "type": "text", "x": 0, "w": 12, "y": -3, "align": "center", "text": "↗", "font": "=mono", "size": 11, "color": "=navy" } ] }
+                { "type": "text", "x": 0, "w": 12, "y": -3, "align": "center", "text": "*", "font": "=mono", "size": 11, "color": "=navy" } ] }
             ]
           } },
         // the count, in a sunken cell along the bottom
@@ -327,8 +331,8 @@
         // the progress dialog
         { "type": "group", "w": 400, "h": 140, "scale": "=0.9 + 0.1 * easeOutBack(progress(launch.t, 220))",
           "anchor": "center", "x": 320, "y": 240, "children": [
-            { "use": "window", "w": 400, "h": 140, "with": { "title": "Starting…" } },
-            { "type": "text", "x": 16, "y": 46, "w": 368, "text": "Loading {game.title}…", "font": "=mono", "size": 13, "color": "=ink" },
+            { "use": "window", "w": 400, "h": 140, "with": { "title": "Starting..." } },
+            { "type": "text", "x": 16, "y": 46, "w": 368, "text": "Loading {game.title}...", "font": "=mono", "size": 13, "color": "=ink" },
             { "type": "rect", "x": 16, "y": 76, "w": 368, "h": 20, "fill": "=paper", "border": 2, "borderColor": "=ink" },
             { "type": "list", "source": "range", "count": 30, "direction": "row", "scrollMode": "none", "x": 20, "y": 80, "w": 360, "h": 12,
               "itemW": 10, "gap": 2,
