@@ -14,7 +14,7 @@
 
   "colors": {
     "screenBg": "#c0c0c0", "screenBand": "#ffffff", "screenFrame": "#000000",
-    "ink": "#000000", "muted": "#808080", "line": "#808080", "edge": "#000000", "navy": "#000080",
+    "ink": "#000000", "muted": "#404040", "line": "#808080", "edge": "#000000", "navy": "#000080",
     "panelBand": "#ffffff", "panelBody": "#c0c0c0", "panelLow": "#808080",
     "chipBand": "#ffffff", "chipBody": "#c0c0c0",
     "bubbleBand": "#ffffff", "bubbleBody": "#c0c0c0", "bubbleLow": "#808080",
@@ -34,7 +34,7 @@
 
   "vars": {
     "face": "#c0c0c0", "hi": "#ffffff", "sh": "#808080", "well": "#c0c0c0", "hover": "#dfdfdf",
-    "ink": "#000000", "acc": "#000080", "urgent": "#ff0000", "navy": "#000080",
+    "ink": "#000000", "dim": "#404040", "acc": "#000080", "urgent": "#ff0000", "navy": "#000080",
     "paper": "#ffffff", "mono": "dos"
   },
 
@@ -112,7 +112,7 @@
       ]
     },
 
-    // a window: the grey frame, a navy title bar (title in "title") and a close box
+    // a window: the grey frame, a navy title bar (title in "title") and its minimise/maximise/close boxes
     "window": {
       "type": "group",
       "children": [
@@ -122,11 +122,20 @@
         { "type": "rect", "x": 2, "y": 2, "bottom": 2, "w": 2, "fill": "=hi" },
         { "type": "rect", "x": 2, "bottom": 2, "right": 2, "h": 2, "fill": "=sh" },
         { "type": "rect", "right": 2, "y": 2, "bottom": 2, "w": 2, "fill": "=sh" },
-        { "type": "group", "x": 6, "y": 6, "right": 6, "h": 20, "children": [
+        { "type": "group", "x": 6, "y": 6, "right": 6, "h": 25, "children": [
           { "type": "rect", "fill": "=navy" },
-          { "type": "text", "x": 6, "y": 3, "right": 24, "align": "center", "text": "{title}", "font": "=mono", "size": 12, "color": "#ffffff" },
-          { "use": "raised", "right": 3, "y": 2, "w": 16, "h": 16, "children": [
-            { "type": "text", "x": 0, "w": "100%", "y": 1, "h": "100%", "align": "center", "valign": "middle", "text": "X", "size": 11, "color": "=ink" } ] }
+          { "type": "text", "x": 8, "y": 4, "right": 74, "align": "center", "text": "{title}", "font": "=mono", "size": 15, "color": "#ffffff" },
+          // the Windows 95 title-bar buttons: minimise, maximise, close (drawn for the look; they do nothing)
+          { "type": "group", "right": 49, "y": 2, "w": 20, "h": 20, "children": [
+            { "use": "raised" },
+            { "type": "rect", "x": 6, "y": 13, "w": 9, "h": 3, "fill": "=ink" } ] },
+          { "type": "group", "right": 26, "y": 2, "w": 20, "h": 20, "children": [
+            { "use": "raised" },
+            { "type": "rect", "x": 5, "y": 5, "w": 11, "h": 10, "fill": "=ink" },
+            { "type": "rect", "x": 6, "y": 8, "w": 9, "h": 6, "fill": "=face" } ] },
+          { "type": "group", "right": 3, "y": 2, "w": 20, "h": 20, "children": [
+            { "use": "raised" },
+            { "type": "text", "x": 0, "w": "100%", "y": 1, "h": "100%", "align": "center", "valign": "middle", "text": "X", "size": 14, "color": "=ink" } ] }
         ] }
       ]
     },
@@ -137,11 +146,12 @@
       "children": [
         { "type": "rect", "fill": "=ink" },
         { "type": "rect", "x": 1, "y": 1, "right": 1, "bottom": 1, "fill": "=face" },
-        { "type": "list", "source": "hints", "direction": "row", "flow": true, "gap": 18, "scrollMode": "none", "x": 8, "y": 4, "w": "100%", "h": 18,
-          "item": { "type": "group", "layout": "row", "gap": 5, "align": "center", "h": 18, "children": [
-            { "use": "raised", "w": "=10 + 8 * len(item.key)", "h": 16, "children": [
-              { "type": "text", "x": 0, "w": "100%", "y": 1, "h": "100%", "align": "center", "valign": "middle", "text": "{item.key}", "size": 11, "color": "=ink" } ] },
-            { "type": "text", "text": "{item.label}", "size": 12, "color": "=ink" } ] } }
+        { "type": "list", "source": "hints", "direction": "row", "flow": true, "gap": 16, "scrollMode": "none", "x": 9, "y": 5, "w": "100%", "h": 22,
+          "item": { "type": "group", "layout": "row", "gap": 6, "align": "center", "h": 22, "children": [
+            { "type": "group", "w": "=11 + 9 * len(item.key)", "h": 20, "children": [
+              { "use": "raised" },
+              { "type": "text", "x": 0, "w": "100%", "y": 1, "h": "100%", "align": "center", "valign": "middle", "text": "{item.key}", "size": 14, "color": "=ink" } ] },
+            { "type": "text", "text": "{item.label}", "size": 15, "color": "=ink" } ] } }
       ]
     },
 
@@ -155,16 +165,16 @@
         { "type": "rect", "x": 1, "y": 1, "bottom": 1, "w": 2, "fill": "=hi" },
         { "type": "rect", "x": 1, "bottom": 1, "right": 1, "h": 2, "fill": "=sh" },
         { "type": "rect", "right": 1, "y": 1, "bottom": 1, "w": 2, "fill": "=sh" },
-        { "type": "group", "x": 6, "y": 6, "right": 6, "h": 22, "children": [
+        { "type": "group", "x": 6, "y": 6, "right": 6, "h": 27, "children": [
           { "type": "rect", "fill": "=ink" },
           { "type": "rect", "x": 1, "y": 1, "right": 1, "bottom": 1, "fill": "=well" },
           { "type": "rect", "x": 1, "y": 1, "right": 1, "h": 1, "fill": "=sh" },
           { "type": "rect", "x": 1, "bottom": 1, "right": 1, "h": 1, "fill": "=hi" },
-          { "type": "text", "x": 6, "y": 3, "text": "{heading}", "font": "=mono", "size": 12, "color": "=ink" }
+          { "type": "text", "x": 8, "y": 4, "text": "{heading}", "font": "=mono", "size": 15, "color": "=ink" }
         ] },
-        { "type": "text", "x": 10, "y": 40, "w": 122, "text": "{line1}", "size": 12, "color": "=ink", "wrap": true },
-        { "type": "text", "x": 10, "y": 68, "w": 122, "text": "{line2}", "size": 12, "color": "=ink", "wrap": true },
-        { "type": "text", "x": 10, "y": 98, "w": 122, "text": "{line3}", "size": 12, "color": "=ink", "wrap": true }
+        { "type": "text", "x": 9, "y": 48, "w": 138, "text": "{line1}", "size": 14, "color": "=ink", "wrap": true },
+        { "type": "text", "x": 9, "y": 84, "w": 138, "text": "{line2}", "size": 14, "color": "=ink", "wrap": true },
+        { "type": "text", "x": 9, "y": 120, "w": 138, "text": "{line3}", "size": 14, "color": "=ink", "wrap": true }
       ]
     },
 
@@ -172,8 +182,8 @@
     "fact": {
       "type": "group", "layout": "column", "gap": 2,
       "children": [
-        { "type": "text", "text": "{label}", "size": 11, "color": "=sh" },
-        { "type": "text", "text": "{value}", "font": "=mono", "size": 15, "color": "=ink" }
+        { "type": "text", "text": "{label}", "size": 14, "color": "=dim" },
+        { "type": "text", "text": "{value}", "font": "=mono", "size": 19, "color": "=ink" }
       ]
     }
   },
@@ -182,37 +192,46 @@
     // the Retroism panel, along the top of every view
     "all": {
       "top": {
-        "type": "group", "x": 0, "y": 0, "w": "100%", "h": 28,
+        "type": "group", "x": 0, "y": 0, "w": "100%", "h": 35,
         "children": [
         { "type": "rect", "fill": "=ink" },
         { "type": "rect", "x": 1, "y": 1, "right": 1, "bottom": 1, "fill": "=face" },
         { "type": "rect", "x": 1, "y": 1, "right": 1, "h": 1, "fill": "=hi" },
         { "type": "rect", "x": 1, "bottom": 1, "right": 1, "h": 2, "fill": "=sh" },
         // the "start" chip
-        { "use": "raised", "x": 4, "y": 4, "w": 78, "h": 20, "children": [
-          { "type": "group", "x": 6, "y": 5, "w": 10, "h": 10, "children": [
-            { "type": "rect", "w": 5, "h": 5, "fill": "#ff0000" },
-            { "type": "rect", "x": 6, "w": 4, "h": 5, "fill": "#00a000" },
-            { "type": "rect", "y": 6, "w": 5, "h": 4, "fill": "#0000c0" },
-            { "type": "rect", "x": 6, "y": 6, "w": 4, "h": 4, "fill": "#ffd000" }
+        { "type": "group", "x": 5, "y": 5, "w": 100, "h": 25, "children": [
+          { "use": "raised" },
+          { "type": "group", "x": 8, "y": 7, "w": 13, "h": 13, "children": [
+            { "type": "rect", "w": 7, "h": 7, "fill": "#ff0000" },
+            { "type": "rect", "x": 8, "w": 5, "h": 7, "fill": "#00a000" },
+            { "type": "rect", "y": 8, "w": 7, "h": 5, "fill": "#0000c0" },
+            { "type": "rect", "x": 8, "y": 8, "w": 5, "h": 5, "fill": "#ffd000" }
           ] },
-          { "type": "text", "x": 22, "y": 3, "text": "BANANA", "font": "=mono", "size": 12, "color": "=ink" }
+          { "type": "text", "x": 28, "y": 4, "text": "BANANA", "font": "=mono", "size": 15, "color": "=ink" }
         ] },
         // what is open, in a sunken cell (waybar's #window)
-        { "use": "sunken", "x": 88, "y": 4, "w": 300, "h": 20, "children": [
-          { "type": "text", "x": 6, "y": 2, "w": 288, "text": "=view == 'home' ? sys.name : game.title", "font": "=mono", "size": 12, "color": "=ink" }
+        { "type": "group", "x": 114, "y": 5, "w": 326, "h": 25, "children": [
+          { "use": "sunken" },
+          { "type": "text", "x": 8, "y": 4, "w": 310, "text": "=view == 'home' ? sys.name : game.title", "font": "=mono", "size": 15, "color": "=ink" }
         ] },
         // the tray: Wi-Fi, battery, clock
-        { "use": "raised", "right": 140, "y": 4, "w": 20, "h": 20, "children": [
-          { "type": "rect", "x": 5, "y": 5, "w": 10, "h": 10, "fill": "=online ? acc : '#808080'" }
+        { "type": "group", "right": 170, "y": 5, "w": 26, "h": 26, "children": [
+          { "use": "raised" },
+          // the Wi-Fi signal: four bars, black when it is up, pale when it is down
+          { "type": "rect", "x": 5, "y": 15, "w": 3, "h": 5, "fill": "=online ? ink : '#a8a8a8'" },
+          { "type": "rect", "x": 9, "y": 12, "w": 3, "h": 8, "fill": "=online ? ink : '#a8a8a8'" },
+          { "type": "rect", "x": 13, "y": 9, "w": 3, "h": 11, "fill": "=online ? ink : '#a8a8a8'" },
+          { "type": "rect", "x": 17, "y": 6, "w": 3, "h": 14, "fill": "=online ? ink : '#a8a8a8'" }
         ] },
-        { "use": "sunken", "right": 76, "y": 4, "w": 58, "h": 20, "children": [
-          { "type": "rect", "x": 5, "y": 6, "w": 16, "h": 8, "border": 1, "borderColor": "=ink", "visible": "=battery >= 0" },
-          { "type": "rect", "x": 7, "y": 8, "w": "=12 * battery / 100", "h": 4, "fill": "=battery < 20 ? urgent : acc", "visible": "=battery >= 0" },
-          { "type": "text", "right": 4, "y": 2, "w": 30, "align": "right", "text": "=battery < 0 ? '' : battery", "font": "=mono", "size": 12, "color": "=ink" }
+        { "type": "group", "right": 94, "y": 5, "w": 72, "h": 25, "children": [
+          { "use": "sunken" },
+          { "type": "rect", "x": 7, "y": 8, "w": 20, "h": 10, "border": 1, "borderColor": "=ink", "visible": "=battery >= 0" },
+          { "type": "rect", "x": 9, "y": 10, "w": "=16 * battery / 100", "h": 6, "fill": "=battery < 20 ? urgent : acc", "visible": "=battery >= 0" },
+          { "type": "text", "right": 5, "y": 4, "w": 38, "align": "right", "text": "=battery < 0 ? '' : battery", "font": "=mono", "size": 15, "color": "=ink" }
         ] },
-        { "use": "sunken", "right": 4, "y": 4, "w": 66, "h": 20, "children": [
-          { "type": "text", "x": 0, "w": "100%", "y": 2, "align": "center", "text": "{clock}", "font": "=mono", "size": 12, "color": "=ink" }
+        { "type": "group", "right": 4, "y": 5, "w": 86, "h": 25, "children": [
+          { "use": "sunken" },
+          { "type": "text", "x": 0, "w": "100%", "y": 4, "align": "center", "text": "{clock}", "font": "=mono", "size": 15, "color": "=ink" }
         ] }
         ]
       }
@@ -222,49 +241,50 @@
       "top": [
         { "use": "wallpaper" },
         { "use": "window", "x": 40, "y": 36, "w": 560, "h": 372, "with": { "title": "{sys.name}" } },
-        { "use": "tasks", "x": 52, "y": 72, "w": 142, "h": 324,
+        { "use": "tasks", "x": 52, "y": 72, "w": 150, "h": 324,
           "with": { "heading": "System", "line1": "=sys.app ? 'Start this app' : 'Open the games'",
                     "line2": "=sys.hasResume ? 'Resume the last game' : 'No game in progress'",
                     "line3": "=sys.fav ? 'Remove from favourites' : 'Add to favourites'" } },
-        { "use": "client", "x": 206, "y": 72, "w": 376, "h": 324 },
-        { "type": "image", "src": "{sys.icon}", "fit": "pixelContain", "x": 224, "y": 88, "w": 92, "h": 92,
+        { "use": "client", "x": 210, "y": 72, "w": 372, "h": 324 },
+        { "type": "image", "src": "{sys.icon}", "fit": "pixelContain", "x": 228, "y": 88, "w": 114, "h": 114,
           "scale": "=0.85 + 0.15 * easeOutBack(progress(moved, 220))", "anchor": "top left" },
-        { "type": "text", "x": 330, "y": 92, "w": 240, "text": "{sys.name}", "font": "=mono", "size": 22, "color": "=ink", "wrap": true, "maxLines": 2 },
-        { "type": "text", "x": 330, "y": 148, "w": 240, "text": "{upper(sys.maker)}", "size": 12, "color": "=sh" },
-        { "type": "rect", "x": 224, "y": 196, "w": 346, "h": 1, "fill": "=sh" },
-        { "type": "group", "x": 224, "y": 210, "w": 346, "h": 50, "layout": "row", "gap": 30, "children": [
+        { "type": "text", "x": 352, "y": 90, "w": 226, "text": "{sys.name}", "font": "=mono", "size": 28, "color": "=ink", "wrap": true, "maxLines": 2 },
+        { "type": "text", "x": 352, "y": 166, "w": 226, "text": "{upper(sys.maker)}", "size": 15, "color": "=dim" },
+        { "type": "rect", "x": 228, "y": 216, "w": 342, "h": 1, "fill": "=sh" },
+        { "type": "group", "x": 228, "y": 228, "w": 342, "h": 60, "layout": "row", "gap": 38, "children": [
           { "use": "fact", "with": { "label": "Games", "value": "=sys.app ? 'App' : str(sys.games)" } },
           { "use": "fact", "with": { "label": "Played", "value": "{sys.played}" } },
           { "use": "fact", "with": { "label": "Time", "value": "=either(sys.time, '0m')" } } ] },
-        { "type": "group", "x": 224, "y": 280, "w": 346, "h": 108, "visible": "=sys.hasResume", "children": [
-          { "type": "text", "text": "{either(sys.resumeEyebrow, 'Last played')}", "size": 11, "color": "=sh" },
-          { "type": "image", "src": "{sys.resumeArt}", "fallback": "{sys.icon}", "fit": "contain", "x": 0, "y": 18, "w": 68, "h": 68, "placeholder": "=well" },
-          { "type": "text", "x": 80, "y": 28, "w": 266, "text": "{sys.resumeTitle}", "font": "=mono", "size": 14, "color": "=ink" },
-          { "type": "text", "x": 80, "y": 52, "w": 266, "text": "Press X to resume", "size": 12, "color": "=navy" } ] },
-        { "use": "statusbar", "x": 40, "y": 418, "w": 560, "h": 26 }
+        { "type": "group", "x": 228, "y": 292, "w": 342, "h": 100, "visible": "=sys.hasResume", "children": [
+          { "type": "text", "text": "{either(sys.resumeEyebrow, 'Last played')}", "size": 14, "color": "=dim" },
+          { "type": "image", "src": "{sys.resumeArt}", "fallback": "{sys.icon}", "fit": "contain", "x": 0, "y": 16, "w": 80, "h": 80, "placeholder": "=well" },
+          { "type": "text", "x": 92, "y": 28, "w": 250, "text": "{sys.resumeTitle}", "font": "=mono", "size": 18, "color": "=ink" },
+          { "type": "text", "x": 92, "y": 56, "w": 250, "text": "Press X to resume", "size": 15, "color": "=navy" } ] },
+        { "use": "statusbar", "x": 40, "y": 412, "w": 560, "h": 32 }
       ],
       "bottom": [
         { "use": "wallpaper" },
-        // the desktop icons: the systems down the left, labelled like shortcuts
-        { "type": "list", "source": "systems", "direction": "column", "x": 10, "y": 8, "w": 120, "h": 460,
-          "itemW": 110, "itemH": 62, "gap": 1, "scrollMode": "edge", "clip": true,
+        // the desktop icons: the systems as a grid of shortcuts, four to a row
+        { "type": "list", "source": "systems", "direction": "grid", "columns": 4, "x": 12, "y": 12, "w": 616, "h": 428,
+          "itemW": 148, "itemH": 104, "gap": 8, "scrollMode": "edge", "clip": true,
           "item": {
-            "type": "group", "w": 110, "h": 62,
+            "type": "group", "w": 148, "h": 104,
             "children": [
-              { "type": "image", "src": "{item.icon}", "fit": "pixelContain", "x": 39, "y": 3, "w": 30, "h": 30,
+              { "type": "image", "src": "{item.icon}", "fit": "pixelContain", "x": 45, "y": 6, "w": 58, "h": 58,
                 "scale": "=sel ? 1.15 : 1.0" },
-              { "type": "group", "x": 55, "y": 38, "anchor": "top", "layout": "row", "padding": 2,
+              { "type": "group", "x": 74, "y": 68, "anchor": "top", "layout": "row", "padding": 2,
                 "fill": "=sel ? navy : '#00000000'",
-                "children": [ { "type": "text", "text": "{item.name}", "size": 11, "color": "=sel ? '#ffffff' : '#eef2f7'",
+                "children": [ { "type": "text", "text": "{item.name}", "size": 14, "color": "=sel ? '#ffffff' : '#eef2f7'",
                   "shadow": { "x": 1, "y": 1, "color": "=sel ? '#00000000' : '#000000c0'" } } ] },
-              { "type": "group", "x": 66, "y": 21, "w": 12, "h": 12, "fill": "=paper", "border": 1, "borderColor": "=ink",
+              { "type": "group", "x": 88, "y": 6, "w": 15, "h": 15, "fill": "=paper", "border": 1, "borderColor": "=ink",
                 "visible": "=item.fav", "children": [
-                { "type": "text", "x": 0, "w": 12, "y": -3, "align": "center", "text": "*", "font": "=mono", "size": 11, "color": "=navy" } ] }
+                { "type": "text", "x": 0, "w": 15, "y": -4, "align": "center", "text": "*", "font": "=mono", "size": 14, "color": "=navy" } ] }
             ]
           } },
         // the count, in a sunken cell at the bottom right
-        { "use": "sunken", "right": 10, "y": 452, "w": 120, "h": 20, "children": [
-          { "type": "text", "x": 0, "w": "100%", "y": 2, "align": "center", "text": "{cursor + 1} of {count}", "font": "=mono", "size": 12, "color": "=ink" }
+        { "type": "group", "right": 10, "y": 452, "w": 140, "h": 24, "children": [
+          { "use": "sunken" },
+          { "type": "text", "x": 0, "w": "100%", "y": 4, "align": "center", "text": "{cursor + 1} of {count}", "font": "=mono", "size": 15, "color": "=ink" }
         ] }
       ]
     },
@@ -273,55 +293,56 @@
       "top": [
         { "use": "wallpaper" },
         { "use": "window", "x": 40, "y": 36, "w": 560, "h": 372, "with": { "title": "{game.title}" } },
-        { "use": "tasks", "x": 52, "y": 72, "w": 142, "h": 324,
+        { "use": "tasks", "x": 52, "y": 72, "w": 150, "h": 324,
           "with": { "heading": "Game", "line1": "Play this game", "line2": "=game.fav ? 'Remove from favourites' : 'Add to favourites'", "line3": "Back to the systems" } },
-        { "use": "client", "x": 206, "y": 72, "w": 376, "h": 324 },
-        { "type": "text", "x": 216, "w": 356, "y": 190, "align": "center", "visible": "=empty", "text": "{empty.title}", "font": "=mono", "size": 16, "color": "=ink" },
-        { "type": "text", "x": 216, "w": 356, "y": 216, "align": "center", "visible": "=empty", "text": "{empty.hint}", "size": 12, "color": "=sh", "wrap": true },
-        { "type": "image", "src": "{game.art}", "fallback": "=either(game.romIcon, game.icon, sys.icon)", "fit": "contain", "x": 224, "y": 86, "w": 140, "h": 160,
+        { "use": "client", "x": 210, "y": 72, "w": 372, "h": 324 },
+        { "type": "text", "x": 220, "w": 352, "y": 190, "align": "center", "visible": "=empty", "text": "{empty.title}", "font": "=mono", "size": 20, "color": "=ink" },
+        { "type": "text", "x": 220, "w": 352, "y": 224, "align": "center", "visible": "=empty", "text": "{empty.hint}", "size": 15, "color": "=dim", "wrap": true },
+        { "type": "image", "src": "{game.art}", "fallback": "=either(game.romIcon, game.icon, sys.icon)", "fit": "contain", "x": 228, "y": 86, "w": 156, "h": 186,
           "placeholder": "=face", "visible": "=!empty", "opacity": "=easeOut(progress(moved, 180))" },
-        { "type": "text", "x": 378, "y": 88, "w": 194, "text": "{game.title}", "font": "=mono", "size": 18, "color": "=ink", "wrap": true, "maxLines": 3 },
-        { "type": "text", "x": 378, "y": 156, "w": 194, "text": "{game.sub}", "size": 12, "color": "=sh", "wrap": true, "maxLines": 2 },
-        { "type": "rect", "x": 224, "y": 258, "w": 348, "h": 1, "fill": "=sh", "visible": "=!empty" },
-        { "type": "group", "x": 224, "y": 272, "w": 348, "h": 50, "layout": "row", "gap": 26, "visible": "=!empty", "children": [
+        { "type": "text", "x": 392, "y": 88, "w": 189, "text": "{game.title}", "font": "=mono", "size": 23, "color": "=ink", "wrap": true, "maxLines": 3 },
+        { "type": "text", "x": 392, "y": 178, "w": 189, "text": "{game.sub}", "size": 15, "color": "=dim", "wrap": true, "maxLines": 2 },
+        { "type": "rect", "x": 228, "y": 278, "w": 342, "h": 1, "fill": "=sh", "visible": "=!empty" },
+        { "type": "group", "x": 228, "y": 290, "w": 342, "h": 58, "layout": "row", "gap": 30, "visible": "=!empty", "children": [
           { "use": "fact", "with": { "label": "Plays", "value": "=either(game.plays, '0')" } },
           { "use": "fact", "with": { "label": "Last", "value": "=either(game.last, 'Never')" } },
           { "use": "fact", "with": { "label": "Time", "value": "=either(game.time, '0m')" } } ] },
-        { "type": "group", "x": 224, "y": 336, "w": 348, "h": 40, "visible": "=game.achB > 0", "children": [
-          { "type": "text", "text": "{game.achLabel}", "size": 11, "color": "=sh" },
-          { "type": "rect", "y": 20, "w": 348, "h": 14, "fill": "=paper", "border": 1, "borderColor": "=ink" },
-          { "type": "rect", "x": 2, "y": 22, "w": "=344 * game.achProgress", "h": 10, "fill": "=acc" } ] },
-        { "use": "statusbar", "x": 40, "y": 418, "w": 560, "h": 26 }
+        { "type": "group", "x": 228, "y": 350, "w": 342, "h": 44, "visible": "=game.achB > 0", "children": [
+          { "type": "text", "text": "{game.achLabel}", "size": 14, "color": "=dim" },
+          { "type": "rect", "y": 26, "w": 342, "h": 16, "fill": "=paper", "border": 1, "borderColor": "=ink" },
+          { "type": "rect", "x": 2, "y": 28, "w": "=338 * game.achProgress", "h": 12, "fill": "=acc" } ] },
+        { "use": "statusbar", "x": 40, "y": 412, "w": 560, "h": 32 }
       ],
       "bottom": [
         { "use": "wallpaper" },
         // the system's folder, open over the desktop
         { "use": "window", "x": 8, "y": 30, "w": 624, "h": 420, "with": { "title": "{sys.name}" } },
         // the address bar
-        { "type": "group", "x": 16, "y": 62, "w": 608, "h": 22, "children": [
-          { "type": "text", "x": 0, "y": 4, "text": "Address", "size": 11, "color": "=ink" },
-          { "use": "client", "x": 52, "y": 0, "right": 0, "h": 20, "children": [
-            { "type": "text", "x": 5, "y": 2, "text": "C:\\Games\\{sys.name}", "font": "=mono", "size": 11, "color": "=ink" } ] } ] },
+        { "type": "group", "x": 16, "y": 62, "w": 608, "h": 26, "children": [
+          { "type": "text", "x": 0, "y": 6, "text": "Address", "size": 14, "color": "=ink" },
+          { "type": "group", "x": 62, "y": 0, "right": 0, "h": 24, "children": [
+            { "use": "client" },
+            { "type": "text", "x": 6, "y": 3, "text": "C:\\Games\\{sys.name}", "font": "=mono", "size": 14, "color": "=ink" } ] } ] },
         // the file area
-        { "type": "rect", "x": 16, "y": 90, "w": 608, "h": 330, "fill": "=paper", "border": 2, "borderColor": "=ink" },
-        { "type": "text", "x": 16, "w": 608, "y": 230, "align": "center", "visible": "=empty", "text": "This folder is empty.", "size": 13, "color": "=sh" },
-        { "type": "list", "source": "games", "direction": "column", "x": 22, "y": 96, "w": 596, "h": 318,
-          "itemW": 596, "itemH": 26, "gap": 1, "scrollMode": "edge", "clip": true,
+        { "type": "rect", "x": 16, "y": 92, "w": 608, "h": 326, "fill": "=paper", "border": 2, "borderColor": "=ink" },
+        { "type": "text", "x": 16, "w": 608, "y": 230, "align": "center", "visible": "=empty", "text": "This folder is empty.", "size": 17, "color": "=dim" },
+        { "type": "list", "source": "games", "direction": "column", "x": 22, "y": 98, "w": 596, "h": 314,
+          "itemW": 596, "itemH": 33, "gap": 1, "scrollMode": "edge", "clip": true,
           "item": {
-            "type": "group", "w": 596, "h": 26,
+            "type": "group", "w": 596, "h": 33,
             "children": [
               { "type": "rect", "fill": "=sel ? navy : '#00000000'" },
-              { "type": "image", "src": "=either(item.romIcon, item.icon, sys.icon)", "fit": "pixelContain", "x": 4, "y": 3, "w": 20, "h": 20 },
-              { "type": "text", "x": 30, "y": 5, "w": 350, "text": "{item.title}", "size": 12, "color": "=sel ? '#ffffff' : ink" },
-              { "type": "text", "right": 8, "y": 5, "w": 180, "align": "right", "text": "=item.plays > 0 ? plural(item.plays, 'play') : ''", "size": 11, "color": "=sel ? '#ffffff' : sh" }
+              { "type": "image", "src": "=either(item.romIcon, item.icon, sys.icon)", "fit": "pixelContain", "x": 6, "y": 5, "w": 24, "h": 24 },
+              { "type": "text", "x": 36, "y": 7, "w": 350, "text": "{item.title}", "size": 15, "color": "=sel ? '#ffffff' : ink" },
+              { "type": "text", "right": 10, "y": 7, "w": 180, "align": "right", "text": "=item.plays > 0 ? plural(item.plays, 'play') : ''", "size": 14, "color": "=sel ? '#ffffff' : sh" }
             ]
           } },
         // the folder's status bar
-        { "type": "group", "x": 16, "y": 424, "w": 608, "h": 20, "children": [
+        { "type": "group", "x": 16, "y": 420, "w": 608, "h": 24, "children": [
           { "type": "rect", "fill": "=face" },
           { "type": "rect", "y": 0, "h": 1, "w": "100%", "fill": "=ink" },
-          { "type": "text", "x": 6, "y": 3, "text": "=plural(count, 'game')", "size": 11, "color": "=ink" },
-          { "type": "text", "right": 6, "y": 3, "w": 200, "align": "right", "text": "{cursor + 1} of {count}", "size": 11, "color": "=ink", "visible": "=!empty" } ] }
+          { "type": "text", "x": 8, "y": 4, "text": "=plural(count, 'game')", "size": 14, "color": "=ink" },
+          { "type": "text", "right": 8, "y": 4, "w": 200, "align": "right", "text": "{cursor + 1} of {count}", "size": 14, "color": "=ink", "visible": "=!empty" } ] }
       ]
     },
 
@@ -329,15 +350,15 @@
       "bottom": [
         { "use": "wallpaper" },
         // the progress dialog
-        { "type": "group", "w": 400, "h": 140, "scale": "=0.9 + 0.1 * easeOutBack(progress(launch.t, 220))",
+        { "type": "group", "w": 480, "h": 172, "scale": "=0.9 + 0.1 * easeOutBack(progress(launch.t, 220))",
           "anchor": "center", "x": 320, "y": 240, "children": [
-            { "use": "window", "w": 400, "h": 140, "with": { "title": "Starting..." } },
-            { "type": "text", "x": 16, "y": 46, "w": 368, "text": "Loading {game.title}...", "font": "=mono", "size": 13, "color": "=ink" },
-            { "type": "rect", "x": 16, "y": 76, "w": 368, "h": 20, "fill": "=paper", "border": 2, "borderColor": "=ink" },
-            { "type": "list", "source": "range", "count": 30, "direction": "row", "scrollMode": "none", "x": 20, "y": 80, "w": 360, "h": 12,
-              "itemW": 10, "gap": 2,
-              "item": { "type": "rect", "w": 10, "h": 12, "visible": "=i < floor(easeInOut(launch.progress) * 31)", "fill": "=acc" } },
-            { "type": "text", "x": 16, "y": 108, "text": "{floor(launch.progress * 100)}%", "size": 11, "color": "=sh" }
+            { "use": "window", "w": 480, "h": 172, "with": { "title": "Starting..." } },
+            { "type": "text", "x": 16, "y": 58, "w": 448, "text": "Loading {game.title}...", "font": "=mono", "size": 17, "color": "=ink" },
+            { "type": "rect", "x": 16, "y": 98, "w": 448, "h": 26, "fill": "=paper", "border": 2, "borderColor": "=ink" },
+            { "type": "list", "source": "range", "count": 30, "direction": "row", "scrollMode": "none", "x": 26, "y": 104, "w": 440, "h": 18,
+              "itemW": 12, "gap": 2,
+              "item": { "type": "rect", "w": 12, "h": 18, "visible": "=i < floor(easeInOut(launch.progress) * 31)", "fill": "=acc" } },
+            { "type": "text", "x": 16, "y": 136, "text": "{floor(launch.progress * 100)}%", "size": 14, "color": "=dim" }
           ] }
       ]
     }

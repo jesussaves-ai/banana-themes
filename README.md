@@ -25,17 +25,17 @@ system. Everything but the wallpaper and the DOS VGA font is drawn from the file
 The wallpaper is the author's own, downscaled to 1024×768 (the engine refuses a picture over 4096 px a side, and
 the panels are only 640×480 and 1024×768); a light scrim sits over it so the icons and windows stay readable.
 
-Home — the window on the top screen, the desktop with its system icons on the bottom:
+Home — the window on the top screen, the desktop with its system icons in a grid on the bottom:
 
-![Retroism: home](preview/retroism-home.png?v=2)
+![Retroism: home](preview/retroism-home.png?v=6)
 
 The game library — a game window on the top screen, the system's folder on the bottom:
 
-![Retroism: library](preview/retroism-library.png?v=2)
+![Retroism: library](preview/retroism-library.png?v=6)
 
 Starting a game — a progress dialog over the desktop:
 
-![Retroism: launch](preview/retroism-launch.png?v=2)
+![Retroism: launch](preview/retroism-launch.png?v=6)
 
 *(Every preview here is the theme rendered by BananaOS's own engine, so it shows exactly what the handheld
 draws. Top screen on the left, bottom on the right.)*
