@@ -18,14 +18,16 @@ with the card in a computer — then pick it in **Settings ▸ Display & sound �
 
 A Windows 95 desktop in the [Chicago95](https://github.com/grassmunk/Chicago95) style: grey beveled windows with
 square corners, navy title bars and selections, a taskbar along the top. Matches a niri + Quickshell "Retroism"
-system. Everything but the wallpaper and the DOS VGA font is drawn from the file's own shapes and text.
+system. Everything but the wallpaper and the DOS VGA font is drawn from the file's own shapes and text — every
+window carries the classic minimise, maximise and close boxes, and the tray shows the Wi-Fi signal, the battery
+and the clock.
 
 📄 [`retroism.json`](retroism.json) · 🖼️ [`retroism/wallpaper.png`](retroism/wallpaper.png)
 
 The wallpaper is the author's own, downscaled to 1024×768 (the engine refuses a picture over 4096 px a side, and
 the panels are only 640×480 and 1024×768); a light scrim sits over it so the icons and windows stay readable.
 
-Home — the window on the top screen, the desktop with its system icons in a grid on the bottom:
+Home — the window on the top screen, the desktop with its system icons in a four-column grid on the bottom:
 
 ![Retroism: home](preview/retroism-home.png?v=6)
 
