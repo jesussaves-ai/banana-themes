@@ -65,4 +65,12 @@ some popular retro fonts are proprietary and can't be redistributed.
   (face `#c0c0c0`, highlight `#ffffff`, shadow `#808080`, outline `#000000`, navy `#000080`, hover `#dfdfdf`)
   and its [`MorePerfectDOSVGA.ttf`](retroism/MorePerfectDOSVGA.ttf) font, and draws the screens with BananaOS's
   own elements. Thanks to its authors.
-- The wallpaper in `retroism/` is the theme author's own.
+- The wallpaper in `retroism/` is the theme author's own.---
+
+## Support
+
+If you'd like to support the project, you can buy me a coffee on Ko-fi:
+
+**[https://ko-fi.com/jesussavesai](https://ko-fi.com/jesussavesai)**
+
+And honestly -- paid or free, it all means a lot to me. A donation, a star, a bug report, or just using what I make: thank you. ❤️
