@@ -50,9 +50,9 @@ The Nintendo DSi's white app menu, adapted to BananaOS's two screens. The top sc
 in blue, the date, clock and battery, the box art in its white and silver frame, the L and R tabs along the bottom.
 The bottom screen is the DSi's shelf: the white, silver-edged speech bubble with the title and maker, the row of
 beveled app tiles (the selected one a blue gradient with **START**), and the silver page bar with its dotted line,
-blue arrow buttons and page thumb. Everything is drawn at the DSi's 256×192 and upscaled by whole pixels — the
-frame, bubble, tiles and page bar as pixel art with their bevels and shadows — and the text is BananaOS's pixel font,
-so it keeps the low-resolution DSi look.
+blue arrow buttons and page thumb. The art is drawn at the DSi's 256×192 ×4 (1024×768), so it is pixel-exact on the
+RG DS Plus's panels (and nearest-scaled on the RG DS's 640×480); the frame, bubble, tiles and page bar are pixel art
+with their bevels and shadows, and the text is BananaOS's pixel font on the same grid.
 
 📄 [`dsi.json`](dsi.json) · 🖼️ [`dsi/bg-top.png`](dsi/bg-top.png) · 🖼️ [`dsi/pagebar.png`](dsi/pagebar.png)
 
@@ -98,8 +98,8 @@ some popular retro fonts are proprietary and can't be redistributed.
 - **DSi Menu**'s white pinstriped backgrounds, L and R tabs, volume icon and palette are from
   **[TWiLightMenu++](https://github.com/DS-Homebrew/TWiLightMenu)**'s "Default White" DSi skin by RocketRobz and
   DS-Homebrew ([`twlmenu-extras`](https://github.com/DS-Homebrew/twlmenu-extras), GPL-3.0), converted to 640×480
-  PNGs; the frame, title bubble, tiles, page bar and thumb are pixel art drawn to the skin's 256×192 proportions
-  (bevels, gradients and shadows included); the rest is BananaOS's own elements. TWiLightMenu++ recreates the
+  PNGs at 4× the DSi's 256×192 (1024×768); the frame, title bubble, tiles, page bar and thumb are pixel art drawn to
+  the same proportions (bevels, gradients and shadows included); the rest is BananaOS's own elements. TWiLightMenu++ recreates the
   Nintendo DSi Menu; Nintendo DSi, the DSi Menu design and its name are Nintendo's, this is a fan-made look-alike,
   and no firmware or ROM data is included.
 

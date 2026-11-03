@@ -43,9 +43,9 @@
     "bar": {
       "type": "group", "x": 0, "y": 0, "w": "100%", "h": 48,
       "children": [
-        { "type": "image", "src": "dsi/volume.png", "fit": "pixel", "x": 10, "y": 10, "w": 36, "h": 24 },
-        { "type": "text", "x": 56, "y": 8, "text": "Banana", "size": 30, "color": "=blue" },
-        { "type": "text", "right": 60, "y": 10, "w": 250, "align": "right", "text": "{date}  {clock}", "size": 20,
+        { "type": "image", "src": "dsi/volume.png", "fit": "pixel", "x": 10, "y": 10, "w": 45, "h": 30 },
+        { "type": "text", "x": 56, "y": 8, "text": "Banana", "size": 25, "color": "=blue" },
+        { "type": "text", "right": 60, "y": 10, "w": 250, "align": "right", "text": "{date}  {clock}", "size": 18.75,
           "color": "=ink" },
         { "type": "rect", "right": 7, "y": 12, "w": 45, "h": 27, "radius": 5, "fill": "=white",
           "border": 2, "borderColor": "=grey", "visible": "=battery >= 0" },
@@ -60,9 +60,9 @@
       "type": "group", "x": 0, "y": 430, "w": 640, "h": 50,
       "children": [
         { "type": "image", "src": "dsi/shoulder-l.png", "fit": "pixel", "x": 0, "y": 0, "w": 195, "h": 50 },
-        { "type": "text", "x": 54, "y": 10, "text": "Previous", "size": 30, "color": "=ink" },
+        { "type": "text", "x": 54, "y": 10, "text": "Previous", "size": 25, "color": "=ink" },
         { "type": "image", "src": "dsi/shoulder-r.png", "fit": "pixel", "right": 0, "y": 0, "w": 195, "h": 50 },
-        { "type": "text", "right": 54, "y": 10, "w": 220, "align": "right", "text": "Next", "size": 30, "color": "=ink" }
+        { "type": "text", "right": 54, "y": 10, "w": 220, "align": "right", "text": "Next", "size": 25, "color": "=ink" }
       ]
     },
 
@@ -82,7 +82,7 @@
       "children": [
         { "type": "image", "src": "dsi/tile.png", "fit": "pixel", "x": 4, "y": 30, "w": 120, "h": 120, "visible": "=!sel" },
         { "type": "image", "src": "dsi/tile-sel.png", "fit": "pixel", "x": 4, "y": 0, "w": 120, "h": 170, "visible": "=sel" },
-        { "type": "text", "x": 4, "y": 126, "w": 120, "align": "center", "text": "START", "size": 20, "color": "=white",
+        { "type": "text", "x": 4, "y": 126, "w": 120, "align": "center", "text": "START", "size": 18.75, "color": "=white",
           "visible": "=sel" }
       ]
     }
@@ -102,9 +102,9 @@
         { "type": "image", "src": "dsi/bg-bottom.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
 
         { "type": "image", "src": "dsi/bubble.png", "fit": "pixel", "x": 17, "y": 16, "w": 605, "h": 200 },
-        { "type": "text", "x": 0, "w": "100%", "y": 44, "align": "center", "text": "{sys.name}", "size": 40,
+        { "type": "text", "x": 0, "w": "100%", "y": 44, "align": "center", "text": "{sys.name}", "size": 37.5,
           "color": "=ink" },
-        { "type": "text", "x": 0, "w": "100%", "y": 108, "align": "center", "text": "{upper(sys.maker)}", "size": 20,
+        { "type": "text", "x": 0, "w": "100%", "y": 108, "align": "center", "text": "{upper(sys.maker)}", "size": 18.75,
           "color": "#6a6a6a" },
 
         { "type": "list", "source": "systems", "direction": "row", "x": 0, "y": 222, "w": 640, "h": 180,
@@ -137,14 +137,14 @@
         { "type": "image", "src": "dsi/bg-bottom.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
 
         { "type": "image", "src": "dsi/bubble.png", "fit": "pixel", "x": 17, "y": 16, "w": 605, "h": 200 },
-        { "type": "text", "x": 0, "w": "100%", "y": 42, "align": "center", "text": "{game.title}", "size": 40,
+        { "type": "text", "x": 0, "w": "100%", "y": 42, "align": "center", "text": "{game.title}", "size": 37.5,
           "color": "=ink", "wrap": false, "ellipsis": true },
         { "type": "text", "x": 0, "w": "100%", "y": 108, "align": "center",
-          "text": "{sys.name}  -  {game.plays} {game.plays == 1 ? 'play' : 'plays'}", "size": 20, "color": "#6a6a6a" },
+          "text": "{sys.name}  -  {game.plays} {game.plays == 1 ? 'play' : 'plays'}", "size": 18.75, "color": "#6a6a6a" },
 
-        { "type": "text", "x": 0, "w": "100%", "y": 250, "align": "center", "text": "{empty.title}", "size": 30,
+        { "type": "text", "x": 0, "w": "100%", "y": 250, "align": "center", "text": "{empty.title}", "size": 25,
           "color": "=ink", "visible": "=empty" },
-        { "type": "text", "x": 40, "w": 560, "y": 290, "align": "center", "text": "{empty.hint}", "size": 20,
+        { "type": "text", "x": 40, "w": 560, "y": 290, "align": "center", "text": "{empty.hint}", "size": 18.75,
           "color": "#6a6a6a", "wrap": true, "visible": "=empty" },
 
         { "type": "list", "source": "games", "direction": "row", "x": 0, "y": 222, "w": 640, "h": 180,
@@ -178,7 +178,7 @@
         { "type": "rect", "fill": "#ffffff" },
         { "type": "image", "src": "{sys.icon}", "fit": "pixelContain", "x": 320, "y": 150, "w": 110, "h": 110,
           "anchor": "center", "opacity": "=1 - easeIn(launch.progress)" },
-        { "type": "text", "x": 0, "w": "100%", "y": 226, "align": "center", "text": "{game.title}", "size": 30,
+        { "type": "text", "x": 0, "w": "100%", "y": 226, "align": "center", "text": "{game.title}", "size": 25,
           "color": "=ink" },
         { "type": "rect", "x": 200, "y": 300, "w": 240, "h": 14, "radius": 3, "fill": "=white", "border": 3,
           "borderColor": "=blue" },
