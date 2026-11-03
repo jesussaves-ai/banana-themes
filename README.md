@@ -46,11 +46,12 @@ draws. Top screen on the left, bottom on the right.)*
 
 ## DSi Menu
 
-The Nintendo DSi's app menu, adapted to BananaOS's two screens. The top screen is the DSi's: a box art in the white
-frame over the striped blue, the L and R tabs along its bottom, the volume, date, clock and battery in the bar. The
-bottom screen is the DSi's shelf: the white speech bubble with the title and maker, the row of beveled app tiles with
-**START** under the selection, and the blue page bar with its arrows and page count. The 256×192 art is upscaled by
-whole pixels and the text is BananaOS's pixel font, so it keeps the DSi's low-resolution look.
+The Nintendo DSi's white app menu, adapted to BananaOS's two screens. The top screen is the DSi's: the user name
+in blue, the date, clock and battery, the box art in its white and silver frame, the L and R tabs along the bottom.
+The bottom screen is the DSi's shelf: the white, silver-edged speech bubble with the title and maker, the row of app
+tiles (the selected one blue, with **START**), and the silver page bar with its blue arrows, dotted line and page
+thumb. The 256×192 art is upscaled by whole pixels and the text is BananaOS's pixel font, so it keeps the DSi's
+low-resolution look.
 
 📄 [`dsi.json`](dsi.json) · 🖼️ [`dsi/bg-top.png`](dsi/bg-top.png) · 🖼️ [`dsi/bubble.png`](dsi/bubble.png)
 
@@ -93,11 +94,11 @@ some popular retro fonts are proprietary and can't be redistributed.
   and its [`MorePerfectDOSVGA.ttf`](retroism/MorePerfectDOSVGA.ttf) font, and draws the screens with BananaOS's
   own elements. Thanks to its authors.
 - The wallpaper in `retroism/` is the theme author's own.
-- **DSi Menu**'s striped backgrounds (with the title bubble), L and R tabs, volume icon and palette are from
-  **[TWiLightMenu++](https://github.com/DS-Homebrew/TWiLightMenu)**'s "Default Blue" DSi skin by RocketRobz and
+- **DSi Menu**'s white pinstriped backgrounds, L and R tabs, volume icon and palette are from
+  **[TWiLightMenu++](https://github.com/DS-Homebrew/TWiLightMenu)**'s "Default White" DSi skin by RocketRobz and
   DS-Homebrew ([`twlmenu-extras`](https://github.com/DS-Homebrew/twlmenu-extras), GPL-3.0), converted to 640×480
-  PNGs (the frame and the title bubble are drawn to the skin's 256×192 proportions); the tiles, page bar and text
-  are BananaOS's own elements. TWiLightMenu++ recreates the
+  PNGs (the frame, title bubble, tiles and page bar are drawn to the skin's 256×192 proportions); the rest is
+  BananaOS's own elements. TWiLightMenu++ recreates the
   Nintendo DSi Menu; Nintendo DSi, the DSi Menu design and its name are Nintendo's, this is a fan-made look-alike,
   and no firmware or ROM data is included.
 
