@@ -44,6 +44,32 @@ draws. Top screen on the left, bottom on the right.)*
 
 ---
 
+## DSi Menu
+
+The Nintendo DSi's white-and-blue menu, adapted to BananaOS's two screens. The top screen is the DSi's photo view:
+the selected system's or game's art in a white frame, its title in the DSi's white speech bubble. The bottom screen
+is the DSi's app shelf: one eased row of icon bubbles, the selection grown into the middle, the page count, the
+DSi's thin scrollbar, and the button hints along the bottom. Soft blues, rounded type (Varela Round) and no noise.
+
+📄 [`dsi.json`](dsi.json) · 🖼️ [`dsi/bubble.png`](dsi/bubble.png) · 🔤 [`dsi/VarelaRound-Regular.ttf`](dsi/VarelaRound-Regular.ttf)
+
+Home — the selected system on the photo screen, the shelf on the bottom:
+
+![DSi Menu: home](preview/dsi-home.png)
+
+The game library — the box art in the frame, the games in the shelf:
+
+![DSi Menu: library](preview/dsi-lib.png)
+
+Starting a game — the DSi's white launch, the box art growing away:
+
+![DSi Menu: launch](preview/dsi-launch.png)
+
+*(Every preview here is the theme rendered by BananaOS's own engine, so it shows exactly what the handheld
+draws. Top screen on the left, bottom on the right.)*
+
+---
+
 ## Make your own
 
 The BananaOS checkout builds two editors: an offline web one (`tools/theme-studio/`) and a desktop one
@@ -66,6 +92,13 @@ some popular retro fonts are proprietary and can't be redistributed.
   and its [`MorePerfectDOSVGA.ttf`](retroism/MorePerfectDOSVGA.ttf) font, and draws the screens with BananaOS's
   own elements. Thanks to its authors.
 - The wallpaper in `retroism/` is the theme author's own.
+- **DSi Menu**'s title bubble (`dsi/bubble.png`) is from
+  **[TWiLightMenu++](https://github.com/DS-Homebrew/TWiLightMenu)** by DS-Homebrew and contributors
+  (`romsel_dsimenutheme/resources/bubble.bmp`, GPL-3.0), with its magenta key made transparent; the rest of the
+  theme is drawn by BananaOS's elements. TWiLightMenu++ recreates the Nintendo DSi Menu; Nintendo DSi, the DSi Menu
+  design and its name are Nintendo's, this is a fan-made look-alike, and no firmware or ROM data is included.
+- The DSi Menu theme's text is **[Varela Round](https://github.com/alefalefalef/Varela-Round)** by the Varela Round
+  Project Authors, SIL Open Font License 1.1 (`dsi/OFL.txt`).
 
 ---
 
