@@ -29,15 +29,15 @@ the panels are only 640×480 and 1024×768); a light scrim sits over it so the i
 
 Home — the window on the top screen, the desktop with its system icons in a four-column grid on the bottom:
 
-![Retroism: home](preview/retroism-home.png?v=6)
+![Retroism: home](preview/retroism-home.png?v=7)
 
 The game library — a game window on the top screen, the system's folder on the bottom:
 
-![Retroism: library](preview/retroism-library.png?v=6)
+![Retroism: library](preview/retroism-library.png?v=7)
 
 Starting a game — a progress dialog over the desktop:
 
-![Retroism: launch](preview/retroism-launch.png?v=6)
+![Retroism: launch](preview/retroism-launch.png?v=7)
 
 *(Every preview here is the theme rendered by BananaOS's own engine, so it shows exactly what the handheld
 draws. Top screen on the left, bottom on the right.)*

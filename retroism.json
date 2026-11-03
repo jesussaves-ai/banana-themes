@@ -39,8 +39,8 @@
   },
 
   "input": {
-    "home": { "left": "prev", "right": "next", "up": "prev", "down": "next" },
-    "library": { "up": "prev", "down": "next", "left": "prev:4", "right": "next:4" }
+    "home": { "left": "prev", "right": "next", "up": "prev:4", "down": "next:4" },
+    "library": { "up": "prev", "down": "next", "left": "none", "right": "none" }
   },
   "hints": {
     "home": [["A", "Open"], ["X", "Resume"], ["Y", "Favourite"]],
@@ -212,7 +212,7 @@
         // what is open, in a sunken cell (waybar's #window)
         { "type": "group", "x": 114, "y": 5, "w": 326, "h": 25, "children": [
           { "use": "sunken" },
-          { "type": "text", "x": 8, "y": 4, "w": 310, "text": "=view == 'home' ? sys.name : game.title", "font": "=mono", "size": 15, "color": "=ink" }
+          { "type": "text", "x": 8, "y": 4, "w": 310, "text": "=view == 'home' ? sys.name : either(game.title, sys.name)", "font": "=mono", "size": 15, "color": "=ink" }
         ] },
         // the tray: Wi-Fi, battery, clock
         { "type": "group", "right": 170, "y": 5, "w": 26, "h": 26, "children": [
@@ -227,7 +227,7 @@
           { "use": "sunken" },
           { "type": "rect", "x": 7, "y": 8, "w": 20, "h": 10, "border": 1, "borderColor": "=ink", "visible": "=battery >= 0" },
           { "type": "rect", "x": 9, "y": 10, "w": "=16 * battery / 100", "h": 6, "fill": "=battery < 20 ? urgent : acc", "visible": "=battery >= 0" },
-          { "type": "text", "right": 5, "y": 4, "w": 38, "align": "right", "text": "=battery < 0 ? '' : battery", "font": "=mono", "size": 15, "color": "=ink" }
+          { "type": "text", "right": 5, "y": 4, "w": 52, "align": "right", "text": "=battery < 0 ? '' : battery + '%'", "font": "=mono", "size": 14, "color": "=ink" }
         ] },
         { "type": "group", "right": 4, "y": 5, "w": 86, "h": 25, "children": [
           { "use": "sunken" },
@@ -272,9 +272,10 @@
             "children": [
               { "type": "image", "src": "{item.icon}", "fit": "pixelContain", "x": 45, "y": 6, "w": 58, "h": 58,
                 "scale": "=sel ? 1.15 : 1.0" },
-              { "type": "group", "x": 74, "y": 68, "anchor": "top", "layout": "row", "padding": 2,
+              { "type": "group", "x": 74, "y": 68, "w": 140, "anchor": "top", "layout": "row", "padding": 2,
                 "fill": "=sel ? navy : '#00000000'",
-                "children": [ { "type": "text", "text": "{item.name}", "size": 14, "color": "=sel ? '#ffffff' : '#eef2f7'",
+                "children": [ { "type": "text", "w": 136, "align": "center", "text": "{item.name}", "size": 14,
+                  "color": "=sel ? '#ffffff' : '#eef2f7'",
                   "shadow": { "x": 1, "y": 1, "color": "=sel ? '#00000000' : '#000000c0'" } } ] },
               { "type": "group", "x": 88, "y": 6, "w": 15, "h": 15, "fill": "=paper", "border": 1, "borderColor": "=ink",
                 "visible": "=item.fav", "children": [
@@ -292,9 +293,10 @@
     "library": {
       "top": [
         { "use": "wallpaper" },
-        { "use": "window", "x": 40, "y": 36, "w": 560, "h": 372, "with": { "title": "{game.title}" } },
+        { "use": "window", "x": 40, "y": 36, "w": 560, "h": 372, "with": { "title": "=either(game.title, sys.name)" } },
         { "use": "tasks", "x": 52, "y": 72, "w": 150, "h": 324,
-          "with": { "heading": "Game", "line1": "Play this game", "line2": "=game.fav ? 'Remove from favourites' : 'Add to favourites'", "line3": "Back to the systems" } },
+          "with": { "heading": "Game", "line1": "=empty ? 'No games yet' : 'Play this game'",
+                    "line2": "=game.fav ? 'Remove from favourites' : 'Add to favourites'", "line3": "Back to the systems" } },
         { "use": "client", "x": 210, "y": 72, "w": 372, "h": 324 },
         { "type": "text", "x": 220, "w": 352, "y": 190, "align": "center", "visible": "=empty", "text": "{empty.title}", "font": "=mono", "size": 20, "color": "=ink" },
         { "type": "text", "x": 220, "w": 352, "y": 224, "align": "center", "visible": "=empty", "text": "{empty.hint}", "size": 15, "color": "=dim", "wrap": true },
@@ -332,7 +334,8 @@
             "type": "group", "w": 596, "h": 33,
             "children": [
               { "type": "rect", "fill": "=sel ? navy : '#00000000'" },
-              { "type": "image", "src": "=either(item.romIcon, item.icon, sys.icon)", "fit": "pixelContain", "x": 6, "y": 5, "w": 24, "h": 24 },
+              { "type": "image", "src": "=either(item.romIcon, item.icon, sys.icon)", "fallback": "{sys.icon}",
+                "fit": "pixelContain", "x": 6, "y": 5, "w": 24, "h": 24, "placeholder": "=face" },
               { "type": "text", "x": 36, "y": 7, "w": 350, "text": "{item.title}", "size": 15, "color": "=sel ? '#ffffff' : ink" },
               { "type": "text", "right": 10, "y": 7, "w": 180, "align": "right", "text": "=item.plays > 0 ? plural(item.plays, 'play') : ''", "size": 14, "color": "=sel ? '#ffffff' : sh" }
             ]
@@ -347,6 +350,18 @@
     },
 
     "launch": {
+      "top": [
+        { "use": "wallpaper" },
+        { "use": "window", "x": 40, "y": 36, "w": 560, "h": 372, "with": { "title": "Starting..." } },
+        { "use": "client", "x": 52, "y": 72, "w": 536, "h": 324 },
+        { "type": "image", "src": "{game.art}", "fallback": "=either(game.romIcon, game.icon, sys.icon)", "fit": "contain",
+          "x": 220, "y": 96, "w": 200, "h": 240, "placeholder": "=well" },
+        { "type": "text", "x": 432, "y": 120, "w": 140, "text": "{game.title}", "font": "=mono", "size": 22,
+          "color": "=ink", "wrap": true, "maxLines": 3 },
+        { "type": "text", "x": 432, "y": 230, "w": 140, "text": "=game.sub", "size": 15, "color": "=dim", "wrap": true, "maxLines": 2 },
+        { "type": "text", "x": 432, "y": 292, "w": 140, "text": "{floor(launch.progress * 100)}%", "font": "=mono",
+          "size": 19, "color": "=ink" }
+      ],
       "bottom": [
         { "use": "wallpaper" },
         // the progress dialog
