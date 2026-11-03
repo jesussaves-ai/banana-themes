@@ -20,7 +20,7 @@
     "regular": "pixel",
     "medium": "pixel-medium"
   },
-  "font": "pixel",
+  "font": "pixel-medium",
 
   "vars": {
     "blue": "#3f74c9",
@@ -44,7 +44,7 @@
       "type": "group", "x": 0, "y": 0, "w": "100%", "h": 48,
       "children": [
         { "type": "image", "src": "dsi/volume.png", "fit": "pixel", "x": 10, "y": 10, "w": 36, "h": 24 },
-        { "type": "text", "x": 56, "y": 8, "text": "Banana", "size": 24, "color": "=blue" },
+        { "type": "text", "x": 56, "y": 8, "text": "Banana", "size": 30, "color": "=blue" },
         { "type": "text", "right": 60, "y": 10, "w": 250, "align": "right", "text": "{date}  {clock}", "size": 20,
           "color": "=ink" },
         { "type": "rect", "right": 7, "y": 12, "w": 45, "h": 27, "radius": 5, "fill": "=white",
@@ -60,46 +60,29 @@
       "type": "group", "x": 0, "y": 430, "w": 640, "h": 50,
       "children": [
         { "type": "image", "src": "dsi/shoulder-l.png", "fit": "pixel", "x": 0, "y": 0, "w": 195, "h": 50 },
-        { "type": "text", "x": 54, "y": 10, "text": "Previous", "size": 24, "color": "=ink" },
+        { "type": "text", "x": 54, "y": 10, "text": "Previous", "size": 30, "color": "=ink" },
         { "type": "image", "src": "dsi/shoulder-r.png", "fit": "pixel", "right": 0, "y": 0, "w": 195, "h": 50 },
-        { "type": "text", "right": 54, "y": 10, "w": 220, "align": "right", "text": "Next", "size": 24, "color": "=ink" }
+        { "type": "text", "right": 54, "y": 10, "w": 220, "align": "right", "text": "Next", "size": 30, "color": "=ink" }
       ]
     },
 
-    // the silver page bar at the bottom of the lower screen: the dotted line, the blue arrows, the page thumb
+    // the silver page bar (pagebar.png: its gradient, dotted line and blue arrows), the page thumb sliding along it
     "pagebar": {
       "type": "group", "x": 0, "y": 410, "w": 640, "h": 70,
       "children": [
-        { "type": "rect", "x": 0, "y": 0, "w": 640, "h": 70,
-          "gradient": { "angle": 180, "stops": [ "#f4f4f4", "#c6c6c6" ] } },
-        { "type": "rect", "x": 0, "y": 0, "w": 640, "h": 3, "fill": "#a8a8a8" },
-        { "type": "rect", "x": 0, "y": 67, "w": 640, "h": 3, "fill": "#909090" },
-        { "type": "list", "source": "range", "count": 34, "direction": "row", "x": 58, "y": 43, "w": 524, "h": 6,
-          "stepX": 16, "scrollMode": "none",
-          "item": { "type": "rect", "w": 6, "h": 5, "fill": "#7f9db8" } },
-        { "type": "rect", "x": 6, "y": 12, "w": 44, "h": 46, "radius": 6, "fill": "=blue" },
-        { "type": "text", "x": 6, "w": 44, "y": 18, "align": "center", "text": "<", "size": 28, "color": "=white" },
-        { "type": "rect", "right": 6, "y": 12, "w": 44, "h": 46, "radius": 6, "fill": "=blue" },
-        { "type": "text", "right": 6, "w": 44, "y": 18, "align": "center", "text": ">", "size": 28, "color": "=white" },
-        { "type": "rect", "y": 12, "w": 92, "h": 46, "radius": 5, "fill": "=white", "border": 2, "borderColor": "=grey",
-          "x": "=56 + 436 * (count > 1 ? cursor / (count - 1) : 0)" },
-        { "type": "text", "y": 20, "w": 92, "h": 28, "align": "center", "text": "{cursor + 1} / {count}", "size": 18,
-          "color": "=blue", "x": "=56 + 436 * (count > 1 ? cursor / (count - 1) : 0)" }
+        { "type": "image", "src": "dsi/pagebar.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 70 },
+        { "type": "image", "src": "dsi/thumb.png", "fit": "pixel", "y": 12, "w": 70, "h": 45,
+          "x": "=40 + 530 * (count > 1 ? cursor / (count - 1) : 0)" }
       ]
     },
 
-    // one app tile: white with a silver edge, or the blue selected tile with START under the icon
+    // one app tile: the DSi's beveled white square (tile.png), or the blue selected one (tile-sel.png) with START
     "tile": {
-      "type": "group", "w": 120, "h": 150,
+      "type": "group", "w": 128, "h": 180,
       "children": [
-        { "type": "rect", "w": 120, "h": 150, "radius": 6, "visible": "=sel",
-          "fill": "#7fa9d2", "gradient": { "angle": 180, "stops": [ "#a9cbe8", "#6f9fd0" ] },
-          "border": 4, "borderColor": "=hi" },
-        { "type": "rect", "w": 120, "h": 150, "radius": 6, "visible": "=!sel",
-          "fill": "#fdfdfd", "border": 4, "borderColor": "#b4b4b4" },
-        { "type": "rect", "x": 8, "y": 8, "w": 104, "h": 100, "radius": 4, "fill": "=white",
-          "border": "=sel ? 0 : 2", "borderColor": "#c8c8c8" },
-        { "type": "text", "x": 0, "y": 120, "w": 120, "align": "center", "text": "START", "size": 19, "color": "=white",
+        { "type": "image", "src": "dsi/tile.png", "fit": "pixel", "x": 4, "y": 30, "w": 120, "h": 120, "visible": "=!sel" },
+        { "type": "image", "src": "dsi/tile-sel.png", "fit": "pixel", "x": 4, "y": 0, "w": 120, "h": 170, "visible": "=sel" },
+        { "type": "text", "x": 4, "y": 126, "w": 120, "align": "center", "text": "START", "size": 20, "color": "=white",
           "visible": "=sel" }
       ]
     }
@@ -110,7 +93,7 @@
       "top": [
         { "type": "image", "src": "dsi/bg-top.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
         { "use": "bar" },
-        { "type": "image", "src": "dsi/frame.png", "fit": "pixel", "x": 50, "y": 48, "w": 540, "h": 410 },
+        { "type": "image", "src": "dsi/frame.png", "fit": "pixel", "x": 47, "y": 46, "w": 545, "h": 415 },
         { "type": "image", "src": "{sys.icon}", "fit": "pixelContain", "x": 320, "y": 253, "w": 222, "h": 222,
           "anchor": "center" },
         { "use": "shoulders" }
@@ -118,10 +101,10 @@
       "bottom": [
         { "type": "image", "src": "dsi/bg-bottom.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
 
-        { "type": "image", "src": "dsi/bubble.png", "fit": "pixel", "x": 20, "y": 18, "w": 600, "h": 195 },
-        { "type": "text", "x": 0, "w": "100%", "y": 44, "align": "center", "text": "{sys.name}", "size": 36,
+        { "type": "image", "src": "dsi/bubble.png", "fit": "pixel", "x": 17, "y": 16, "w": 605, "h": 200 },
+        { "type": "text", "x": 0, "w": "100%", "y": 44, "align": "center", "text": "{sys.name}", "size": 40,
           "color": "=ink" },
-        { "type": "text", "x": 0, "w": "100%", "y": 108, "align": "center", "text": "{upper(sys.maker)}", "size": 19,
+        { "type": "text", "x": 0, "w": "100%", "y": 108, "align": "center", "text": "{upper(sys.maker)}", "size": 20,
           "color": "#6a6a6a" },
 
         { "type": "list", "source": "systems", "direction": "row", "x": 0, "y": 222, "w": 640, "h": 180,
@@ -129,9 +112,9 @@
           "item": {
             "type": "group", "w": 128, "h": 180,
             "children": [
-              { "use": "tile", "x": 4, "y": 6 },
-              { "type": "image", "src": "{item.icon}", "fit": "pixelContain", "x": 64, "y": 62, "w": 68, "h": 68,
-                "anchor": "center", "opacity": "=sel ? 1 : 0.9" }
+              { "use": "tile" },
+              { "type": "image", "src": "{item.icon}", "fit": "pixelContain", "x": 64, "y": "=sel ? 59 : 89",
+                "w": 68, "h": 68, "anchor": "center", "opacity": "=sel ? 1 : 0.9" }
             ]
           } },
 
@@ -143,7 +126,7 @@
       "top": [
         { "type": "image", "src": "dsi/bg-top.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
         { "use": "bar" },
-        { "type": "image", "src": "dsi/frame.png", "fit": "pixel", "x": 50, "y": 48, "w": 540, "h": 410 },
+        { "type": "image", "src": "dsi/frame.png", "fit": "pixel", "x": 47, "y": 46, "w": 545, "h": 415 },
         { "type": "image", "src": "{game.box}", "fit": "contain", "x": 320, "y": 253, "w": 210, "h": 350,
           "anchor": "center", "visible": "=game.box != ''" },
         { "type": "image", "src": "{game.art}", "fallback": "{sys.icon}", "fit": "contain", "x": 320, "y": 253,
@@ -153,15 +136,15 @@
       "bottom": [
         { "type": "image", "src": "dsi/bg-bottom.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
 
-        { "type": "image", "src": "dsi/bubble.png", "fit": "pixel", "x": 20, "y": 18, "w": 600, "h": 195 },
-        { "type": "text", "x": 0, "w": "100%", "y": 42, "align": "center", "text": "{game.title}", "size": 34,
+        { "type": "image", "src": "dsi/bubble.png", "fit": "pixel", "x": 17, "y": 16, "w": 605, "h": 200 },
+        { "type": "text", "x": 0, "w": "100%", "y": 42, "align": "center", "text": "{game.title}", "size": 40,
           "color": "=ink", "wrap": false, "ellipsis": true },
         { "type": "text", "x": 0, "w": "100%", "y": 108, "align": "center",
-          "text": "{sys.name}  -  {game.plays} {game.plays == 1 ? 'play' : 'plays'}", "size": 19, "color": "#6a6a6a" },
+          "text": "{sys.name}  -  {game.plays} {game.plays == 1 ? 'play' : 'plays'}", "size": 20, "color": "#6a6a6a" },
 
-        { "type": "text", "x": 0, "w": "100%", "y": 250, "align": "center", "text": "{empty.title}", "size": 28,
+        { "type": "text", "x": 0, "w": "100%", "y": 250, "align": "center", "text": "{empty.title}", "size": 30,
           "color": "=ink", "visible": "=empty" },
-        { "type": "text", "x": 40, "w": 560, "y": 290, "align": "center", "text": "{empty.hint}", "size": 18,
+        { "type": "text", "x": 40, "w": 560, "y": 290, "align": "center", "text": "{empty.hint}", "size": 20,
           "color": "#6a6a6a", "wrap": true, "visible": "=empty" },
 
         { "type": "list", "source": "games", "direction": "row", "x": 0, "y": 222, "w": 640, "h": 180,
@@ -169,8 +152,8 @@
           "item": {
             "type": "group", "w": 128, "h": 180,
             "children": [
-              { "use": "tile", "x": 4, "y": 6 },
-              { "type": "image", "src": "{item.art}", "fallback": "{item.icon}", "fit": "cover", "x": 64, "y": 62,
+              { "use": "tile" },
+              { "type": "image", "src": "{item.art}", "fallback": "{item.icon}", "fit": "cover", "x": 64, "y": "=sel ? 59 : 89",
                 "w": 68, "h": 68, "anchor": "center", "radius": 2, "placeholder": "#dfe6ee",
                 "opacity": "=sel ? 1 : 0.9" }
             ]

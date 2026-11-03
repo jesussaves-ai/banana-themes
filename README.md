@@ -48,12 +48,13 @@ draws. Top screen on the left, bottom on the right.)*
 
 The Nintendo DSi's white app menu, adapted to BananaOS's two screens. The top screen is the DSi's: the user name
 in blue, the date, clock and battery, the box art in its white and silver frame, the L and R tabs along the bottom.
-The bottom screen is the DSi's shelf: the white, silver-edged speech bubble with the title and maker, the row of app
-tiles (the selected one blue, with **START**), and the silver page bar with its blue arrows, dotted line and page
-thumb. The 256×192 art is upscaled by whole pixels and the text is BananaOS's pixel font, so it keeps the DSi's
-low-resolution look.
+The bottom screen is the DSi's shelf: the white, silver-edged speech bubble with the title and maker, the row of
+beveled app tiles (the selected one a blue gradient with **START**), and the silver page bar with its dotted line,
+blue arrow buttons and page thumb. Everything is drawn at the DSi's 256×192 and upscaled by whole pixels — the
+frame, bubble, tiles and page bar as pixel art with their bevels and shadows — and the text is BananaOS's pixel font,
+so it keeps the low-resolution DSi look.
 
-📄 [`dsi.json`](dsi.json) · 🖼️ [`dsi/bg-top.png`](dsi/bg-top.png) · 🖼️ [`dsi/bubble.png`](dsi/bubble.png)
+📄 [`dsi.json`](dsi.json) · 🖼️ [`dsi/bg-top.png`](dsi/bg-top.png) · 🖼️ [`dsi/pagebar.png`](dsi/pagebar.png)
 
 Home — the selected system on the photo screen, the shelf on the bottom:
 
@@ -97,8 +98,8 @@ some popular retro fonts are proprietary and can't be redistributed.
 - **DSi Menu**'s white pinstriped backgrounds, L and R tabs, volume icon and palette are from
   **[TWiLightMenu++](https://github.com/DS-Homebrew/TWiLightMenu)**'s "Default White" DSi skin by RocketRobz and
   DS-Homebrew ([`twlmenu-extras`](https://github.com/DS-Homebrew/twlmenu-extras), GPL-3.0), converted to 640×480
-  PNGs (the frame, title bubble, tiles and page bar are drawn to the skin's 256×192 proportions); the rest is
-  BananaOS's own elements. TWiLightMenu++ recreates the
+  PNGs; the frame, title bubble, tiles, page bar and thumb are pixel art drawn to the skin's 256×192 proportions
+  (bevels, gradients and shadows included); the rest is BananaOS's own elements. TWiLightMenu++ recreates the
   Nintendo DSi Menu; Nintendo DSi, the DSi Menu design and its name are Nintendo's, this is a fan-made look-alike,
   and no firmware or ROM data is included.
 
