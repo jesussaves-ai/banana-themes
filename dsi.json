@@ -1,9 +1,12 @@
 {
-  // DSi Menu: the Nintendo DSi's app menu. The two screens are the DSi's own: the top one a box art in its white
-  // frame over the striped blue, the L and R tabs along its bottom; the bottom one the white speech bubble with the
-  // title and maker, the row of app tiles with START under the selection, and the page bar along the bottom.
-  // The striped backgrounds, the title bubble, the shoulder tabs, the volume icon and the palette are
-  // TWiLightMenu++'s "Default Blue" DSi skin (DS-Homebrew, GPL-3.0); the rest is drawn by BananaOS's elements.
+  // DSi Menu: the Nintendo DSi's app menu, as close to the handheld's as two 640x480 panels allow. The layout is
+  // the DSi's own (256x192 x 2.5): the top screen's striped blue, the box art in its white frame with the teal
+  // matte, the volume/date/clock/battery bar and the L/R tabs; the bottom screen's white speech bubble with the
+  // title, the row of beveled tiles with START under the selection, and the blue page bar. The pixel font and the
+  // 256x192 art upscaled by whole pixels keep the DSi's low-resolution look.
+  //
+  // The striped backgrounds, the L/R tabs, the volume icon and the palette are TWiLightMenu++'s "Default Blue" DSi
+  // skin (DS-Homebrew / RocketRobz, GPL-3.0); the frame and the bubble are drawn to its 256x192 proportions.
   "name": "DSi Menu",
   "author": "BananaOS themes",
   "base": "light",
@@ -15,17 +18,15 @@
     "panel": "#ffffff"
   },
   "fonts": {
-    "regular": "dsi/VarelaRound-Regular.ttf",
-    "medium": "dsi/VarelaRound-Regular.ttf",
-    "round": "dsi/VarelaRound-Regular.ttf"
+    "regular": "pixel",
+    "medium": "pixel-medium"
   },
-  "font": "round",
+  "font": "pixel",
 
   "vars": {
     "blue": "#3a4fe0",
     "deep": "#20304a",
     "soft": "#54648a",
-    "teal": "#a8d0c8",
     "white": "#ffffff",
     "hi": "#2f55f0"
   },
@@ -35,73 +36,63 @@
     "library": { "up": "prev", "down": "next", "l": "prev", "r": "next" }
   },
 
-  "behavior": { "launchMs": 950, "scrollMs": 90, "settleMs": 700, "cues": { "insert": 430 } },
+  "behavior": { "launchMs": 950, "scrollMs": 60, "settleMs": 500, "cues": { "insert": 430 } },
 
   "components": {
-    // the top screen's bar: the volume, the date and clock, the battery
+    // top bar: the volume, the date and clock, the battery (the DSi's x=4, 235 and y=5, x2.5)
     "bar": {
-      "type": "group", "x": 0, "y": 0, "w": "100%", "h": 46,
+      "type": "group", "x": 0, "y": 0, "w": "100%", "h": 48,
       "children": [
-        { "type": "image", "src": "dsi/volume.png", "fit": "pixel", "x": 16, "y": 9, "w": 36, "h": 24 },
-        { "type": "text", "right": 68, "y": 10, "w": 240, "align": "right", "text": "{date}   {clock}", "size": 18,
-          "color": "=white", "shadow": { "y": 1, "color": "#243a8a88" } },
-        { "type": "rect", "right": 18, "y": 12, "w": 42, "h": 21, "radius": 4, "fill": "=white", "visible": "=battery >= 0" },
-        { "type": "rect", "right": 21, "y": 15, "w": "=36 * battery / 100", "h": 15, "radius": 2, "fill": "=hi",
+        { "type": "image", "src": "dsi/volume.png", "fit": "pixel", "x": 10, "y": 10, "w": 36, "h": 24 },
+        { "type": "text", "right": 60, "y": 10, "w": 260, "align": "right", "text": "{date}  {clock}", "size": 20,
+          "color": "=white", "shadow": { "y": 2, "color": "#243a8a99" } },
+        { "type": "rect", "right": 7, "y": 12, "w": 45, "h": 27, "radius": 5, "fill": "=white", "visible": "=battery >= 0" },
+        { "type": "rect", "right": 11, "y": 16, "w": "=36 * battery / 100", "h": 19, "radius": 3, "fill": "=hi",
           "visible": "=battery >= 0" },
-        { "type": "rect", "right": 12, "y": 17, "w": 4, "h": 11, "radius": 1, "fill": "=white", "visible": "=battery >= 0" }
+        { "type": "rect", "right": 3, "y": 19, "w": 4, "h": 13, "radius": 2, "fill": "=white", "visible": "=battery >= 0" }
       ]
     },
 
-    // the DSi's white frame over the striped blue, the teal matte inside
-    "frame": {
-      "type": "group", "x": 24, "y": 48, "w": 592, "h": 366,
-      "children": [
-        { "type": "rect", "x": 0, "y": 0, "w": 592, "h": 366, "radius": 7, "fill": "=white",
-          "border": 3, "borderColor": "=blue", "shadow": { "y": 3, "blur": 8, "color": "#1a2f8a55" } },
-        { "type": "rect", "x": 16, "y": 16, "w": 560, "h": 334, "radius": 2, "fill": "=teal" }
-      ]
-    },
-
-    // the L and R tabs of the DSi's top screen
+    // the L and R tabs of the DSi's top screen (y=172 x2.5)
     "shoulders": {
-      "type": "group", "x": 0, "y": 428, "w": 640, "h": 52,
+      "type": "group", "x": 0, "y": 430, "w": 640, "h": 50,
       "children": [
         { "type": "image", "src": "dsi/shoulder-l.png", "fit": "pixel", "x": 0, "y": 0, "w": 195, "h": 50 },
-        { "type": "text", "x": 56, "y": 9, "text": "Previous", "size": 22, "color": "=white", "opacity": 0.88 },
+        { "type": "text", "x": 54, "y": 10, "text": "Previous", "size": 24, "color": "=white", "opacity": 0.9 },
         { "type": "image", "src": "dsi/shoulder-r.png", "fit": "pixel", "right": 0, "y": 0, "w": 195, "h": 50 },
-        { "type": "text", "right": 56, "y": 9, "w": 200, "align": "right", "text": "Next", "size": 22, "color": "=white",
-          "opacity": 0.88 }
+        { "type": "text", "right": 54, "y": 10, "w": 220, "align": "right", "text": "Next", "size": 24, "color": "=white",
+          "opacity": 0.9 }
       ]
     },
 
-    // the page bar: the blue strip, its end arrows, the thumb
+    // the blue page bar at the bottom of the DSi's lower screen (y=163 x2.5)
     "pagebar": {
-      "type": "group", "x": 0, "y": 440, "w": 640, "h": 40,
+      "type": "group", "x": 0, "y": 410, "w": 640, "h": 70,
       "children": [
-        { "type": "rect", "x": 0, "y": 0, "w": 640, "h": 40, "fill": "#5a70ea" },
-        { "type": "rect", "x": 0, "y": 0, "w": 640, "h": 2, "fill": "=blue" },
-        { "type": "rect", "x": 0, "y": 0, "w": 46, "h": 40, "fill": "#4257dd" },
-        { "type": "text", "x": 0, "w": 46, "y": 7, "align": "center", "text": "‹", "size": 24, "color": "=white" },
-        { "type": "rect", "right": 0, "y": 0, "w": 46, "h": 40, "fill": "#4257dd" },
-        { "type": "text", "right": 0, "w": 46, "y": 7, "align": "center", "text": "›", "size": 24, "color": "=white" },
-        { "type": "rect", "y": 6, "h": 28, "radius": 5, "fill": "#2f47c8", "w": 120,
-          "x": "=46 + 428 * (count > 1 ? cursor / (count - 1) : 0)" },
-        { "type": "text", "y": 10, "h": 22, "w": 120, "align": "center", "text": "{cursor + 1} / {count}", "size": 13,
-          "color": "=white", "opacity": 0.9, "x": "=46 + 428 * (count > 1 ? cursor / (count - 1) : 0)" }
+        { "type": "rect", "x": 0, "y": 0, "w": 640, "h": 70, "fill": "#5a70ea" },
+        { "type": "rect", "x": 0, "y": 0, "w": 640, "h": 4, "fill": "=blue" },
+        { "type": "rect", "x": 0, "y": 4, "w": 48, "h": 66, "fill": "#4257dd" },
+        { "type": "text", "x": 0, "w": 48, "y": 18, "align": "center", "text": "<", "size": 30, "color": "=white" },
+        { "type": "rect", "right": 0, "y": 4, "w": 48, "h": 66, "fill": "#4257dd" },
+        { "type": "text", "right": 0, "w": 48, "y": 18, "align": "center", "text": ">", "size": 30, "color": "=white" },
+        { "type": "rect", "y": 16, "w": 90, "h": 42, "radius": 6, "fill": "#2f47c8",
+          "x": "=48 + 448 * (count > 1 ? cursor / (count - 1) : 0)" },
+        { "type": "text", "y": 26, "w": 90, "h": 24, "align": "center", "text": "{cursor + 1} / {count}", "size": 18,
+          "color": "=white", "x": "=48 + 448 * (count > 1 ? cursor / (count - 1) : 0)" }
       ]
     },
 
-    // one app tile: the white square, the icon, START under the selection
+    // one DSi tile (48x48 x2.5): the white beveled square, START under the selection
     "tile": {
-      "type": "group", "w": 120, "h": 140,
+      "type": "group", "w": 120, "h": 150,
       "children": [
-        { "type": "rect", "w": 120, "h": 140, "radius": 8, "fill": "=white",
-          "border": "=sel ? 4 : 2", "borderColor": "=sel ? hi : '#93a3c4'",
-          "shadow": { "y": 3, "blur": 7, "color": "#1a2f8a44" } },
-        { "type": "rect", "x": 8, "y": 8, "w": 104, "h": 100, "radius": 5, "fill": "#eef3fb",
-          "border": 1, "borderColor": "#b9c4d8" },
-        { "type": "rect", "x": 2, "y": 110, "w": 116, "h": 28, "radius": [ 0, 0, 6, 6 ], "fill": "=hi", "visible": "=sel" },
-        { "type": "text", "x": 2, "y": 114, "w": 116, "align": "center", "text": "START", "size": 16, "color": "=white",
+        { "type": "rect", "w": 120, "h": 150, "radius": 6, "fill": "=white",
+          "border": "=sel ? 5 : 3", "borderColor": "=sel ? hi : '#8f9fc0'",
+          "shadow": { "y": 3, "blur": 0, "color": "#1a2f8a44" } },
+        { "type": "rect", "x": 9, "y": 9, "w": 102, "h": 102, "radius": 4, "fill": "#eef3fb",
+          "border": 2, "borderColor": "#c3cee0" },
+        { "type": "rect", "x": 4, "y": 118, "w": 112, "h": 28, "radius": [ 0, 0, 4, 4 ], "fill": "=hi", "visible": "=sel" },
+        { "type": "text", "x": 4, "y": 122, "w": 112, "align": "center", "text": "START", "size": 19, "color": "=white",
           "visible": "=sel" }
       ]
     }
@@ -112,26 +103,27 @@
       "top": [
         { "type": "image", "src": "dsi/bg-top.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
         { "use": "bar" },
-        { "use": "frame" },
-        { "type": "image", "src": "{sys.icon}", "fit": "pixelContain", "x": 320, "y": 231, "w": 212, "h": 212,
-          "anchor": "center", "scale": "=0.94 + 0.06 * easeOut(progress(moved, 260))" },
+        { "type": "image", "src": "dsi/frame.png", "fit": "pixel", "x": 50, "y": 48, "w": 540, "h": 410 },
+        { "type": "image", "src": "{sys.icon}", "fit": "pixelContain", "x": 320, "y": 253, "w": 222, "h": 222,
+          "anchor": "center" },
         { "use": "shoulders" }
       ],
       "bottom": [
         { "type": "image", "src": "dsi/bg-bottom.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
 
-        { "type": "text", "x": 0, "w": "100%", "y": 88, "align": "center", "text": "{sys.name}", "size": 32,
+        { "type": "image", "src": "dsi/bubble.png", "fit": "pixel", "x": 20, "y": 18, "w": 600, "h": 195 },
+        { "type": "text", "x": 0, "w": "100%", "y": 44, "align": "center", "text": "{sys.name}", "size": 36,
           "color": "=deep" },
-        { "type": "text", "x": 0, "w": "100%", "y": 138, "align": "center", "text": "{upper(sys.maker)}", "size": 16,
-          "color": "#54648a" },
+        { "type": "text", "x": 0, "w": "100%", "y": 108, "align": "center", "text": "{upper(sys.maker)}", "size": 19,
+          "color": "=soft" },
 
-        { "type": "list", "source": "systems", "direction": "row", "x": 0, "y": 270, "w": 640, "h": 160,
-          "itemW": 128, "itemH": 160, "stepX": 134, "scrollMode": "center",
+        { "type": "list", "source": "systems", "direction": "row", "x": 0, "y": 222, "w": 640, "h": 180,
+          "itemW": 128, "itemH": 180, "stepX": 134, "scrollMode": "center",
           "item": {
-            "type": "group", "w": 128, "h": 160,
+            "type": "group", "w": 128, "h": 180,
             "children": [
-              { "use": "tile", "x": 4, "y": 10 },
-              { "type": "image", "src": "{item.icon}", "fit": "pixelContain", "x": 64, "y": 62, "w": 70, "h": 70,
+              { "use": "tile", "x": 4, "y": 6 },
+              { "type": "image", "src": "{item.icon}", "fit": "pixelContain", "x": 64, "y": 66, "w": 68, "h": 68,
                 "anchor": "center", "opacity": "=sel ? 1 : 0.85" }
             ]
           } },
@@ -144,36 +136,35 @@
       "top": [
         { "type": "image", "src": "dsi/bg-top.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
         { "use": "bar" },
-        { "use": "frame" },
-        { "type": "image", "src": "{game.box}", "fit": "contain", "x": 320, "y": 231, "w": 200, "h": 320,
-          "anchor": "center", "radius": 2, "visible": "=game.box != ''",
-          "scale": "=0.96 + 0.04 * easeOut(progress(moved, 260))" },
-        { "type": "image", "src": "{game.art}", "fallback": "{sys.icon}", "fit": "contain", "x": 320, "y": 231,
-          "w": 200, "h": 300, "anchor": "center", "radius": 2, "visible": "=game.box == ''",
-          "scale": "=0.96 + 0.04 * easeOut(progress(moved, 260))" },
+        { "type": "image", "src": "dsi/frame.png", "fit": "pixel", "x": 50, "y": 48, "w": 540, "h": 410 },
+        { "type": "image", "src": "{game.box}", "fit": "contain", "x": 320, "y": 253, "w": 210, "h": 350,
+          "anchor": "center", "visible": "=game.box != ''" },
+        { "type": "image", "src": "{game.art}", "fallback": "{sys.icon}", "fit": "contain", "x": 320, "y": 253,
+          "w": 210, "h": 330, "anchor": "center", "visible": "=game.box == ''" },
         { "use": "shoulders" }
       ],
       "bottom": [
         { "type": "image", "src": "dsi/bg-bottom.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
 
-        { "type": "text", "x": 0, "w": "100%", "y": 86, "align": "center", "text": "{game.title}", "size": 32,
+        { "type": "image", "src": "dsi/bubble.png", "fit": "pixel", "x": 20, "y": 18, "w": 600, "h": 195 },
+        { "type": "text", "x": 0, "w": "100%", "y": 42, "align": "center", "text": "{game.title}", "size": 34,
           "color": "=deep", "wrap": false, "ellipsis": true },
-        { "type": "text", "x": 0, "w": "100%", "y": 136, "align": "center",
-          "text": "{sys.name}   ·   {game.plays} {game.plays == 1 ? 'play' : 'plays'}", "size": 15, "color": "#54648a" },
+        { "type": "text", "x": 0, "w": "100%", "y": 108, "align": "center",
+          "text": "{sys.name}  -  {game.plays} {game.plays == 1 ? 'play' : 'plays'}", "size": 19, "color": "=soft" },
 
-        { "type": "text", "x": 0, "w": "100%", "y": 206, "align": "center", "text": "{empty.title}", "size": 24,
+        { "type": "text", "x": 0, "w": "100%", "y": 250, "align": "center", "text": "{empty.title}", "size": 28,
           "color": "=deep", "visible": "=empty" },
-        { "type": "text", "x": 40, "w": 560, "y": 244, "align": "center", "text": "{empty.hint}", "size": 14,
+        { "type": "text", "x": 40, "w": 560, "y": 290, "align": "center", "text": "{empty.hint}", "size": 18,
           "color": "=soft", "wrap": true, "visible": "=empty" },
 
-        { "type": "list", "source": "games", "direction": "row", "x": 0, "y": 270, "w": 640, "h": 160,
-          "itemW": 128, "itemH": 160, "stepX": 134, "scrollMode": "center",
+        { "type": "list", "source": "games", "direction": "row", "x": 0, "y": 222, "w": 640, "h": 180,
+          "itemW": 128, "itemH": 180, "stepX": 134, "scrollMode": "center",
           "item": {
-            "type": "group", "w": 128, "h": 160,
+            "type": "group", "w": 128, "h": 180,
             "children": [
-              { "use": "tile", "x": 4, "y": 10 },
-              { "type": "image", "src": "{item.art}", "fallback": "{item.icon}", "fit": "cover", "x": 64, "y": 62,
-                "w": 70, "h": 70, "anchor": "center", "radius": 4, "placeholder": "#cfd8e8",
+              { "use": "tile", "x": 4, "y": 6 },
+              { "type": "image", "src": "{item.art}", "fallback": "{item.icon}", "fit": "cover", "x": 64, "y": 66,
+                "w": 68, "h": 68, "anchor": "center", "radius": 2, "placeholder": "#cfd8e8",
                 "opacity": "=sel ? 1 : 0.85" }
             ]
           } },
@@ -185,23 +176,23 @@
     "launch": {
       "top": [
         { "type": "rect", "fill": "#ffffff" },
-        { "type": "image", "src": "{game.box}", "fit": "contain", "x": 320, "y": 240, "w": 240, "h": 320,
-          "anchor": "center", "radius": 3, "visible": "=game.box != ''",
+        { "type": "image", "src": "{game.box}", "fit": "contain", "x": 320, "y": 240, "w": 260, "h": 360,
+          "anchor": "center", "visible": "=game.box != ''",
           "scale": "=1 + 0.9 * easeIn(launch.progress)", "opacity": "=1 - easeIn(launch.progress)" },
         { "type": "image", "src": "{game.art}", "fallback": "{sys.icon}", "fit": "contain", "x": 320, "y": 240,
-          "w": 220, "h": 300, "anchor": "center", "radius": 3, "visible": "=game.box == ''",
+          "w": 240, "h": 330, "anchor": "center", "visible": "=game.box == ''",
           "scale": "=1 + 0.9 * easeIn(launch.progress)", "opacity": "=1 - easeIn(launch.progress)" },
         { "type": "rect", "fill": "#ffffff", "opacity": "=easeIn(launch.progress) * 0.92" }
       ],
       "bottom": [
-        { "type": "image", "src": "dsi/bg-bottom.png", "fit": "pixel", "x": 0, "y": 0, "w": 640, "h": 480 },
-        { "type": "image", "src": "{sys.icon}", "fit": "pixelContain", "x": 320, "y": 140, "w": 92, "h": 92,
-          "anchor": "center", "opacity": "=0.9 - 0.5 * easeIn(launch.progress)" },
-        { "type": "text", "x": 0, "w": "100%", "y": 200, "align": "center", "text": "{game.title}", "size": 22,
+        { "type": "rect", "fill": "#ffffff" },
+        { "type": "image", "src": "{sys.icon}", "fit": "pixelContain", "x": 320, "y": 150, "w": 110, "h": 110,
+          "anchor": "center", "opacity": "=1 - easeIn(launch.progress)" },
+        { "type": "text", "x": 0, "w": "100%", "y": 226, "align": "center", "text": "{game.title}", "size": 30,
           "color": "=deep" },
-        { "type": "rect", "x": 220, "y": 260, "w": 200, "h": 10, "radius": 5, "fill": "=white", "border": 2,
+        { "type": "rect", "x": 200, "y": 300, "w": 240, "h": 14, "radius": 3, "fill": "=white", "border": 3,
           "borderColor": "=blue" },
-        { "type": "rect", "x": 222, "y": 262, "w": "=196 * easeInOut(launch.progress)", "h": 6, "radius": 3, "fill": "=hi" }
+        { "type": "rect", "x": 203, "y": 303, "w": "=234 * easeInOut(launch.progress)", "h": 8, "radius": 2, "fill": "=hi" }
       ]
     }
   }

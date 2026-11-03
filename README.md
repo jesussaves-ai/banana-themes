@@ -49,10 +49,10 @@ draws. Top screen on the left, bottom on the right.)*
 The Nintendo DSi's app menu, adapted to BananaOS's two screens. The top screen is the DSi's: a box art in the white
 frame over the striped blue, the L and R tabs along its bottom, the volume, date, clock and battery in the bar. The
 bottom screen is the DSi's shelf: the white speech bubble with the title and maker, the row of beveled app tiles with
-**START** under the selection, and the blue page bar with its arrows and page count. Rounded type (Varela Round),
-the DSi's periwinkle stripes and no noise.
+**START** under the selection, and the blue page bar with its arrows and page count. The 256×192 art is upscaled by
+whole pixels and the text is BananaOS's pixel font, so it keeps the DSi's low-resolution look.
 
-📄 [`dsi.json`](dsi.json) · 🖼️ [`dsi/bg-top.png`](dsi/bg-top.png) · 🔤 [`dsi/VarelaRound-Regular.ttf`](dsi/VarelaRound-Regular.ttf)
+📄 [`dsi.json`](dsi.json) · 🖼️ [`dsi/bg-top.png`](dsi/bg-top.png) · 🖼️ [`dsi/bubble.png`](dsi/bubble.png)
 
 Home — the selected system on the photo screen, the shelf on the bottom:
 
@@ -96,11 +96,10 @@ some popular retro fonts are proprietary and can't be redistributed.
 - **DSi Menu**'s striped backgrounds (with the title bubble), L and R tabs, volume icon and palette are from
   **[TWiLightMenu++](https://github.com/DS-Homebrew/TWiLightMenu)**'s "Default Blue" DSi skin by RocketRobz and
   DS-Homebrew ([`twlmenu-extras`](https://github.com/DS-Homebrew/twlmenu-extras), GPL-3.0), converted to 640×480
-  PNGs; the frames, tiles, page bar and text are drawn by BananaOS's own elements. TWiLightMenu++ recreates the
+  PNGs (the frame and the title bubble are drawn to the skin's 256×192 proportions); the tiles, page bar and text
+  are BananaOS's own elements. TWiLightMenu++ recreates the
   Nintendo DSi Menu; Nintendo DSi, the DSi Menu design and its name are Nintendo's, this is a fan-made look-alike,
   and no firmware or ROM data is included.
-- The DSi Menu theme's text is **[Varela Round](https://github.com/alefalefalef/Varela-Round)** by the Varela Round
-  Project Authors, SIL Open Font License 1.1 (`dsi/OFL.txt`).
 
 ---
 
