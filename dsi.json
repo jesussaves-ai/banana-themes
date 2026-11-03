@@ -47,11 +47,8 @@
         { "type": "text", "x": 56, "y": 8, "text": "Banana", "size": 25, "color": "=blue" },
         { "type": "text", "right": 60, "y": 10, "w": 250, "align": "right", "text": "{date}  {clock}", "size": 18.75,
           "color": "=ink" },
-        { "type": "rect", "right": 7, "y": 12, "w": 45, "h": 27, "radius": 5, "fill": "=white",
-          "border": 2, "borderColor": "=grey", "visible": "=battery >= 0" },
-        { "type": "rect", "right": 11, "y": 16, "w": "=36 * battery / 100", "h": 19, "radius": 3, "fill": "=blue",
-          "visible": "=battery >= 0" },
-        { "type": "rect", "right": 3, "y": 19, "w": 4, "h": 13, "radius": 2, "fill": "=grey", "visible": "=battery >= 0" }
+        { "type": "image", "fit": "pixel", "right": 7, "y": 12, "w": 45, "h": 27.5, "visible": "=battery >= 0",
+          "src": "=charging ? 'dsi/batterycharge.png' : battery < 25 ? 'dsi/battery1.png' : battery < 50 ? 'dsi/battery2.png' : battery < 75 ? 'dsi/battery3.png' : 'dsi/battery4.png'" }
       ]
     },
 

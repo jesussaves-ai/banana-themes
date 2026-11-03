@@ -95,7 +95,7 @@ some popular retro fonts are proprietary and can't be redistributed.
   and its [`MorePerfectDOSVGA.ttf`](retroism/MorePerfectDOSVGA.ttf) font, and draws the screens with BananaOS's
   own elements. Thanks to its authors.
 - The wallpaper in `retroism/` is the theme author's own.
-- **DSi Menu**'s white pinstriped backgrounds, L and R tabs, volume icon and palette are from
+- **DSi Menu**'s white pinstriped backgrounds, L and R tabs, volume and battery icons and palette are from
   **[TWiLightMenu++](https://github.com/DS-Homebrew/TWiLightMenu)**'s "Default White" DSi skin by RocketRobz and
   DS-Homebrew ([`twlmenu-extras`](https://github.com/DS-Homebrew/twlmenu-extras), GPL-3.0), converted to 640×480
   PNGs at 4× the DSi's 256×192 (1024×768); the frame, title bubble, tiles, page bar and thumb are pixel art drawn to
